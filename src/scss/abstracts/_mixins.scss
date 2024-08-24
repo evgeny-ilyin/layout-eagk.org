@@ -109,7 +109,7 @@
 	}
 }
 
-@mixin media-range($from, $to) {
+@mixin resp-range($from, $to) {
 	@media (min-width: #{map-get($breakpoints, $from)}) and (max-width: #{map-get($breakpoints, $to) - 1}) {
 		@content;
 	}
