@@ -1,0 +1,67 @@
+.flag {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	line-height: 1;
+
+	&.is-active {
+		color: $red;
+	}
+
+	@include when-inside(".lang-nav") {
+		--size: 20px;
+
+		@include resp-from(md) {
+			--size: 32px;
+		}
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		width: var(--size);
+		height: var(--size);
+		flex: 0 0 auto;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
+	// .flag_ru
+	&_ru {
+		&::before {
+			background-image: $svg-flag-ru;
+		}
+	}
+	// .flag_en
+	&_en {
+		&::before {
+			background-image: $svg-flag-en;
+		}
+	}
+	// .flag_kz
+	&_kz {
+		&::before {
+			background-image: $svg-flag-kz;
+		}
+	}
+	// .flag_az
+	&_az {
+		&::before {
+			background-image: $svg-flag-az;
+		}
+	}
+	// .flag_uz
+	&_uz {
+		&::before {
+			background-image: $svg-flag-uz;
+		}
+	}
+	// .flag_eagk
+	&_eagk {
+		&::before {
+			background-image: $svg-flag-eagk;
+		}
+	}
+}

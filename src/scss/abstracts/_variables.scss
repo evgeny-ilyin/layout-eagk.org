@@ -52,7 +52,12 @@ $placeholder-color: $gray-dark;
 $input-color: $black;
 
 //** SVGs --var
-// $svg-fetch-ring: var(--svg-fetch-ring);
+$svg-flag-ru: var(--svg-flag-ru);
+$svg-flag-en: var(--svg-flag-en);
+$svg-flag-kz: var(--svg-flag-kz);
+$svg-flag-az: var(--svg-flag-az);
+$svg-flag-uz: var(--svg-flag-uz);
+$svg-flag-eagk: var(--svg-flag-eagk);
 
 /// Transitions
 $transition-default: 250ms ease-in-out;
