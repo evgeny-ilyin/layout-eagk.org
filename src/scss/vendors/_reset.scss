@@ -28,9 +28,22 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+// ul[role="list"],
+// ol[role="list"] {
+// 	list-style: none;
+// }
+
+/* Способ получше */
+ol[class],
+ul[class] {
 	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 /* Set core body defaults */
