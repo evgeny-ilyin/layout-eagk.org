@@ -22,7 +22,8 @@
 
 .nav {
 	width: 100%;
-
+	user-select: none;
+	
 	// .nav__list
 	&__list {
 		list-style: none;
