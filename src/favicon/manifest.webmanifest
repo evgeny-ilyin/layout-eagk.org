@@ -1,13 +1,13 @@
 {
-	"short_name": "Вереяр",
-	"name": "Курорт Вереяр",
-	"description": "Всесезонный горнолыжный и бальнеологический курорт",
+	"short_name": "ЕАГК",
+	"name": "Евразийский альянс горных курортов",
+	"description": "Первый международный фестиваль горных курортов Евразии проводится на курорте «Роза Хутор». В рамках фестиваля организованы спуски команд-участниц разных стран, насыщенная деловая программа, мероприятия корпоративного университета ЕАГК и вечер национальных кухонь.",
 	"icons": [
 		{ "src": "/favicon/icon-192.png", "type": "image/png", "sizes": "192x192" },
 		{ "src": "/favicon/icon-512.png", "type": "image/png", "sizes": "512x512" }
 	],
-	"start_url": "/index.html",
-	"theme_color": "#292929",
-	"background_color": "#ffffff",
+	"start_url": "/index.php",
+	"theme_color": "#2b289c",
+	"background_color": "#2b289c",
 	"display": "standalone"
 }
