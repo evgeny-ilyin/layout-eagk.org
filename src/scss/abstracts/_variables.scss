@@ -30,6 +30,9 @@ $blue-light: var(--blue-light);
 $blue-dark: var(--blue-dark);
 $error: var(--error);
 
+$selectionBg: #747cf7;
+$selectionText: $white;
+
 /// Main brand color
 /// @type Color
 $brand-color-primary: $blue-dark !default;
@@ -66,7 +69,7 @@ $transition-default: 250ms ease-in-out;
 /// @type Length
 $min-width: 320px !default;
 $max-width: 1440px !default;
-$min-padding: 10px !default;
+$min-padding: 16px !default;
 $max-padding: 10px !default;
 
 //** Breakpoints map
