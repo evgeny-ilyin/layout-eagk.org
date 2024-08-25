@@ -2,16 +2,13 @@
 /// Basic styles for headings
 ///
 %h1-heading {
-	font-size: rem(32);
+	font-size: rem(26);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(md) {
-		font-size: rem(40);
-	}
+	text-transform: uppercase;
 
 	@include resp-from(lg) {
-		font-size: rem(64);
+		font-size: rem(30);
 	}
 }
 
@@ -19,50 +16,32 @@
 	font-size: rem(24);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(lg) {
-		font-size: rem(34);
-	}
+	text-transform: uppercase;
 }
 
 %h3-heading {
 	font-size: rem(20);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(lg) {
-		font-size: rem(24);
-	}
+	text-transform: uppercase;
 }
 
 %h4-heading {
 	font-size: rem(18);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(lg) {
-		font-size: rem(20);
-	}
 }
 
 %h5-heading {
 	font-size: rem(16);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(lg) {
-		font-size: rem(18);
-	}
 }
 
 %h6-heading {
 	font-size: rem(14);
 	line-height: 1.2;
 	font-weight: 600;
-
-	@include resp-from(lg) {
-		font-size: rem(16);
-	}
 }
 
 ///
@@ -86,12 +65,11 @@
 	position: relative;
 	color: currentColor;
 	text-decoration: underline;
-	text-decoration-color: transparent;
 	text-underline-offset: 3px;
 	transition: all $transition-default;
 
 	@include on-hover {
-		text-decoration-color: currentColor;
+		text-decoration-color: transparent;
 	}
 
 	@include on-active {

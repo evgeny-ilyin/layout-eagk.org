@@ -161,3 +161,35 @@ ol {
 // 		font-size: rem(20) !important;
 // 	}
 // }
+
+/**
+ * Links
+ */
+.link-more {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	font-size: rem(16);
+
+	@include on-hover {
+		&::before {
+			margin: 0 13px 0 -2px;
+		}
+	}
+
+	&::before {
+		display: block;
+		content: "";
+		width: 14px;
+		height: 14px;
+		border-top: 2px solid $red;
+		border-left: 2px solid $red;
+		transform: rotate(135deg);
+		margin: 0 18px 0 -7px;
+		transition: all $transition-default;
+	}
+}
+
+.no-decoration {
+	text-decoration-color: transparent !important;
+}
