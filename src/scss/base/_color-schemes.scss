@@ -1,4 +1,27 @@
-.bg-dark {
-	background: $black;
+.bg-secondary {
+	background: $brand-color-secondary;
 	color: $white;
+}
+
+/**
+ * Selections
+ */
+::-moz-selection {
+	background: $selectionBg;
+	color: $selectionText;
+}
+
+::selection {
+	background: $selectionBg;
+	color: $selectionText;
+}
+
+img::-moz-selection {
+	background: rgba($selectionBg, 0.5);
+	color: transparent;
+}
+
+img::selection {
+	background: rgba($selectionBg, 0.5);
+	color: transparent;
 }

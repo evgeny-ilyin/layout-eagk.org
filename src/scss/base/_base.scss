@@ -41,28 +41,6 @@ body {
 	box-sizing: inherit;
 }
 
-/**
- * Selections
- */
-::-moz-selection {
-	background: $gray;
-	color: $black;
-}
-
-::selection {
-	background: $gray;
-	color: $black;
-}
-
-img::-moz-selection {
-	background: rgba($gray, 0.5);
-	color: transparent;
-}
-img::selection {
-	background: rgba($gray, 0.5);
-	color: transparent;
-}
-
 svg {
 	transition: all $transition-default;
 }
