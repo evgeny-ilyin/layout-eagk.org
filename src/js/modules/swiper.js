@@ -29,6 +29,20 @@ export function swiperPressHandler() {
 	});
 }
 
+// init swiper-quotes Swiper
+export function swiperQuotesHandler() {
+	let swiperQuotes;
+	swiperQuotes = new Swiper(".swiper-quotes", {
+		modules: [Pagination],
+		slidesPerView: 1,
+		spaceBetween: 60,
+		pagination: {
+			el: ".swiper-quotes .swiper-pagination",
+			clickable: true,
+		},
+	});
+}
+
 // addEventListener("DOMContentLoaded", () => {
 // 	swiperPressHandler();
 // });

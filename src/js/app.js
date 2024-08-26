@@ -4,6 +4,7 @@ import * as sw from "./modules/swiper.js";
 
 addEventListener("DOMContentLoaded", () => {
 	fn.isTouchDevice();
+	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
 	
 	// useDynamicAdapt();
