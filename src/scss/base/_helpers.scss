@@ -46,13 +46,6 @@
 	display: none !important;
 }
 
-// .hidden-md
-// .hidden-md {
-// 	@include resp-from(md) {
-// 		display: none !important;
-// 	}
-// }
-
 // .hidden-lg
 .hidden-lg {
 	@include resp-from(lg) {
@@ -60,29 +53,12 @@
 	}
 }
 
-// .visible-md
-// .visible-md {
-// 	display: none !important;
-// 	@include resp-from(md) {
-// 		display: block !important;
-// 	}
-// }
-
 // .visible-lg
 .visible-lg {
-	display: none !important;
-	@include resp-from(lg) {
-		display: block !important;
+	@include resp-to(lg) {
+		display: none !important;
 	}
 }
-
-// .visible-lg-flex
-// .visible-lg-flex {
-// 	display: none !important;
-// 	@include resp-from(lg) {
-// 		display: flex !important;
-// 	}
-// }
 
 /**
  * Other
