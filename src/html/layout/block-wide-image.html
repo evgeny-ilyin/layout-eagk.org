@@ -1,3 +1,11 @@
 <div class="wide-image bg-gray-blue-light">
-	<img src="@img/wide-image-@@page.jpg" width="" height="" alt="" loading="lazy">
+	<picture>
+		<source media="(min-width: 1440px)" srcset="@img/wide-image-@@page-1920.webp" type="image/webp">
+		<source media="(min-width: 1280px)" srcset="@img/wide-image-@@page-1440.webp" type="image/webp">
+		<source media="(min-width: 1025px)" srcset="@img/wide-image-@@page-1280.webp" type="image/webp">
+		<source media="(min-width: 769px)" srcset="@img/wide-image-@@page-1024.webp" type="image/webp">
+		<source media="(min-width: 431px)" srcset="@img/wide-image-@@page-768.webp" type="image/webp">
+		<source srcset="@img/wide-image-@@page-430.webp" type="image/webp">
+		<img src="@img/wide-image-@@page.jpg" width="" height="" alt="" loading="lazy">
+	</picture>
 </div>
