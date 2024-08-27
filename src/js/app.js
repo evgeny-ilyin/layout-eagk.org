@@ -4,6 +4,8 @@ import * as sw from "./modules/swiper.js";
 
 addEventListener("DOMContentLoaded", () => {
 	fn.isTouchDevice();
+	sw.swiperMapHandler();
+	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
 	

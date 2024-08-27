@@ -1,0 +1,132 @@
+.block-main {
+	padding: 20px 0 0;
+
+	@include resp-from(md) {
+		padding: 50px 0 70px;
+	}
+
+	// .block-main__wrapper
+	&__wrapper {
+		display: flex;
+	}
+
+	// .block-main__left
+	&__left {
+		width: 50%;
+	}
+
+	// .block-main__right
+	&__right {
+		position: relative;
+		width: 50%;
+	}
+
+	// .block-main__description
+	&__description {
+		max-width: 675px;
+	}
+
+	// .block-main__events
+	&__events {
+	}
+
+	// .block-main__globe
+	&__globe {
+		position: relative;
+		right: -45px;
+		// position: absolute;
+		// width: 100%;
+		// height: 100%;
+		// top: 0;
+		// left: 50%;
+
+		svg {
+			// height: 100%;
+		}
+	}
+}
+
+.description {
+	// .description__common
+	&__common {
+		font-size: rem(35);
+		margin-top: 87px;
+	}
+
+	// .description__resort
+	&__resort {
+	}
+}
+
+.events {
+	// .events__left
+	&__left {
+	}
+
+	// .events__right
+	&__right {
+	}
+}
+
+.swiper-resorts {
+	--swiper-navigation-color: $white;
+	--swiper-navigation-sides-offset: -50px;
+	position: relative; //! навигация за пределами swiper блока (offset: -50px)
+
+	.swiper {
+		position: static; //! навигация за пределами swiper блока (offset: -50px)
+		padding-bottom: 0;
+		overflow: visible;
+
+		@include resp-from(hd) {
+			overflow: hidden;
+		}
+	}
+
+	.swiper-slide {
+		display: flex;
+
+		a {
+			display: flex;
+			width: 100%;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			max-height: 50px;
+			object-fit: contain;
+
+			@include resp-from(md) {
+				max-height: 80px;
+			}
+		}
+	}
+
+	&.is-active {
+		.js-resort {
+			opacity: 0.5;
+
+			&.is-active {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.js-resort {
+	cursor: pointer;
+
+	@include when-inside("svg") {
+		fill: $blue-dark;
+		transition: all $transition-default;
+
+		@include on-hover {
+			fill: $red;
+		}
+
+		&.is-active {
+			fill: $red;
+		}
+	}
+}
