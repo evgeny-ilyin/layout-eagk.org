@@ -15,5 +15,6 @@ addEventListener("DOMContentLoaded", () => {
 	// fn.closeMenuHandler();
 });
 
+import "./modules/calendar.js";
 // import "./modules/cookies.js";
 // import "./modules/fancyapps.js";
