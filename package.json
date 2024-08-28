@@ -48,6 +48,7 @@
 	"description": "",
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.36",
-		"swiper": "^11.1.10"
+		"swiper": "^11.1.10",
+		"vanilla-calendar-pro": "^2.9.10"
 	}
 }
