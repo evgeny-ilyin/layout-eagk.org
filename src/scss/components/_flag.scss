@@ -9,20 +9,34 @@
 	}
 
 	@include when-inside(".lang-nav") {
-		--size: 20px;
+		--width: 20px;
+		--height: 20px;
+		--border-radius: 50%;
 
 		@include resp-from(md) {
-			--size: 32px;
+			--width: 32px;
+			--height: 32px;
+		}
+	}
+
+	@include when-inside(".event") {
+		--width: 30px;
+		--height: 17px;
+		--border-width: 1px;
+
+		@include resp-from(lg) {
+			--width: 40px;
+			--height: 23px;
 		}
 	}
 
 	&::before {
 		content: "";
 		display: block;
-		width: var(--size);
-		height: var(--size);
+		width: var(--width);
+		height: var(--height);
 		flex: 0 0 auto;
-		border-radius: 50%;
+		border-radius: var(--border-radius, 0);
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
@@ -32,6 +46,7 @@
 	&_ru {
 		&::before {
 			background-image: $svg-flag-ru;
+			border: var(--border-width, 0) solid $gray-light;
 		}
 	}
 	// .flag_en
@@ -56,6 +71,7 @@
 	&_uz {
 		&::before {
 			background-image: $svg-flag-uz;
+			border: var(--border-width, 0) solid $gray-light;
 		}
 	}
 	// .flag_eagk
