@@ -9,9 +9,14 @@ export function swiperResortsHandler() {
 		slidesPerView: 2.5,
 		slidesPerGroup: 1,
 		spaceBetween: 20,
+		slideToClickedSlide: true,
 		breakpoints: {
 			577: {
 				slidesPerView: 3.5,
+				spaceBetween: 40,
+			},
+			768: {
+				slidesPerView: 4.5,
 				spaceBetween: 40,
 			},
 			1024: {
@@ -41,12 +46,21 @@ export function swiperResortsHandler() {
 		});
 	});
 
+	let getSlideIndex = (slide) => {
+		let slides = resortsSwiper.querySelectorAll(".swiper-slide");
+		for (let i = 0; i < slides.length; i++) {
+			if (slides[i] === slide) {
+				return i;
+			}
+		}
+	};
+
 	let deactivateAll = () => {
 		const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}`);
 		if (isActive.length > 0) {
 			isActive.forEach((e) => {
 				e.classList.remove(isActiveClass);
-				console.log(e.dataset.map);
+				// console.log(e.dataset.map);
 			});
 		}
 	};
@@ -56,9 +70,14 @@ export function swiperResortsHandler() {
 		if (!target) return;
 
 		resortsSwiper.classList.add(isActiveClass);
+
 		const element = document.querySelectorAll(`[data-map="${target}"]`);
 		element.forEach((el) => {
 			el.classList.add(isActiveClass);
+
+			let slide = el.closest(".swiper-slide");
+			if (!slide) return;
+			swiperResorts.slideTo(getSlideIndex(slide));
 		});
 	};
 
