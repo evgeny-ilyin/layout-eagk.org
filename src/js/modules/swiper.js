@@ -28,55 +28,7 @@ export function swiperResortsHandler() {
 			},
 		},
 	});
-}
 
-// init swiper-press Swiper
-export function swiperPressHandler() {
-	let swiperPress;
-	swiperPress = new Swiper(".swiper-press", {
-		modules: [Pagination],
-		slidesPerView: 1,
-		spaceBetween: 20,
-		breakpoints: {
-			577: {
-				slidesPerView: 2,
-				slidesPerGroup: 2,
-			},
-			1024: {
-				slidesPerView: 3,
-				slidesPerGroup: 3,
-			},
-			1280: {
-				slidesPerView: 4,
-				slidesPerGroup: 4,
-			},
-		},
-		pagination: {
-			el: ".swiper-press .swiper-pagination",
-			clickable: true,
-		},
-	});
-}
-
-// init swiper-quotes Swiper
-export function swiperQuotesHandler() {
-	let swiperQuotes;
-	swiperQuotes = new Swiper(".swiper-quotes", {
-		modules: [Pagination],
-		slidesPerView: 1,
-		spaceBetween: 60,
-		pagination: {
-			el: ".swiper-quotes .swiper-pagination",
-			clickable: true,
-		},
-	});
-}
-
-// addEventListener("DOMContentLoaded", () => {
-// 	swiperPressHandler();
-// });
-
-export function swiperMapHandler() {
 	const resortLinks = document.querySelectorAll(".js-resort"),
 		resortsSwiper = document.querySelector(".swiper-resorts"),
 		isActiveClass = "is-active";
@@ -125,26 +77,48 @@ export function swiperMapHandler() {
 
 		deactivateAll();
 		setActive(id);
-
-		/* 		
-	const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}`);
-		if (isActive.length > 0) {
-			isActive.forEach((e) => {
-				if (e.dataset.map === id) {
-					console.log("equal");
-					e.classList.toggle(isActiveClass);
-				}
-				// console.log(e.dataset.map);
-			});
-		} else {
-			console.log("new");
-			e.classList.remove(isActiveClass);
-		}
-
-		let element = document.querySelectorAll(`[data-map="${id}"]`);
-		element.forEach((el) => {
-			el.classList.add(isActiveClass);
-		}); 
-		*/
 	};
+}
+
+// init swiper-press Swiper
+export function swiperPressHandler() {
+	let swiperPress;
+	swiperPress = new Swiper(".swiper-press", {
+		modules: [Pagination],
+		slidesPerView: 1.5,
+		slidesPerGroup: 1,
+		spaceBetween: 20,
+		breakpoints: {
+			577: {
+				slidesPerView: 2.5,
+				slidesPerGroup: 2,
+			},
+			1024: {
+				slidesPerView: 3.5,
+				slidesPerGroup: 2,
+			},
+			1280: {
+				slidesPerView: 4,
+				slidesPerGroup: 2,
+			},
+		},
+		pagination: {
+			el: ".swiper-press .swiper-pagination",
+			clickable: true,
+		},
+	});
+}
+
+// init swiper-quotes Swiper
+export function swiperQuotesHandler() {
+	let swiperQuotes;
+	swiperQuotes = new Swiper(".swiper-quotes", {
+		modules: [Pagination],
+		slidesPerView: 1,
+		spaceBetween: 60,
+		pagination: {
+			el: ".swiper-quotes .swiper-pagination",
+			clickable: true,
+		},
+	});
 }
