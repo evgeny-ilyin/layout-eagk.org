@@ -30,6 +30,16 @@
 		}
 	}
 
+	@include when-inside(".resort-short") {
+		--width: 40px;
+		--height: 23px;
+
+		@include resp-from(md) {
+			--width: 55px;
+			--height: 32px;
+		}
+	}
+
 	&::before {
 		content: "";
 		display: block;

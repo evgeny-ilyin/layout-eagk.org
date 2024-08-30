@@ -1,15 +1,14 @@
 import * as fn from "./modules/functions.js";
 import * as sw from "./modules/swiper.js";
-// import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
+import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 
 addEventListener("DOMContentLoaded", () => {
+	useDynamicAdapt();
 	fn.isTouchDevice();
-	sw.swiperMapHandler();
 	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
 	
-	// useDynamicAdapt();
 	// fn.isWebp();
 	// fn.stickyHeader();
 	// fn.closeMenuHandler();

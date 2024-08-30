@@ -2,6 +2,10 @@
 	padding: 20px 0 0;
 
 	@include resp-from(md) {
+		padding: 30px 0 50px;
+	}
+
+	@include resp-from(lg) {
 		padding: 50px 0 70px;
 	}
 
@@ -12,59 +16,294 @@
 
 	// .block-main__left
 	&__left {
-		width: 50%;
+		flex: 1 1 100%;
+		// width: 70%;
 	}
 
 	// .block-main__right
 	&__right {
-		position: relative;
-		width: 50%;
+		position: absolute;
+		width: 70%;
+		right: -15%;
+		top: 15%;
+
+		@include resp-from(lg) {
+			width: 58%;
+			right: -10%;
+			top: auto;
+		}
 	}
 
 	// .block-main__description
 	&__description {
-		max-width: 675px;
+		// max-width: 70%;
+
+		// @include resp-from(md) {
+		// 	max-width: 45%;
+		// }
+
+		// @include resp-from(xl) {
+		// 	max-width: 675px;
+		// }
 	}
 
 	// .block-main__events
 	&__events {
+		position: relative;
+		z-index: 1;
 	}
 
 	// .block-main__globe
 	&__globe {
-		position: relative;
-		right: -45px;
-		// position: absolute;
-		// width: 100%;
-		// height: 100%;
-		// top: 0;
-		// left: 50%;
+		&._dynamic_adapt_ {
+			width: 95%;
+			margin-left: auto;
+			margin-bottom: -50%;
+		}
 
 		svg {
-			// height: 100%;
+			height: 100%;
 		}
 	}
 }
 
 .description {
+	margin-top: 40px;
+
+	@include resp-from(lg) {
+		min-height: 25vh;
+		min-height: 25dvh;
+	}
+
+	@include resp-from(hd) {
+		min-height: 30vh;
+		min-height: 30dvh;
+	}
+
 	// .description__common
 	&__common {
-		font-size: rem(35);
-		margin-top: 87px;
+		max-width: 70%;
+		font-size: rem(18);
+		position: relative;
+		z-index: 1;
+		margin-bottom: 40px;
+
+		@include resp-from(md) {
+			max-width: 45%;
+			font-size: rem(20);
+			padding-top: 47px;
+			margin-bottom: 0;
+		}
+
+		@include resp-from(lg) {
+			font-size: rem(24);
+		}
+
+		@include resp-from(xl) {
+			max-width: 675px;
+			font-size: rem(35);
+		}
 	}
 
 	// .description__resort
 	&__resort {
+		max-width: 70%;
+		position: relative;
+		z-index: 1;
+
+		@include resp-from(md) {
+			max-width: 45%;
+		}
+
+		@include resp-from(xl) {
+			max-width: 460px;
+		}
+	}
+}
+
+.resort-short {
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+
+	// .resort-short__name
+	&__name {
+		display: none;
+		font-size: rem(30);
+		font-weight: 600;
+		text-transform: uppercase;
+
+		@include resp-from(md) {
+			display: block;
+		}
+	}
+
+	// .resort-short__geo
+	&__geo {
+		display: flex;
+		align-items: center;
+		font-size: rem(15);
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		margin-bottom: 6px;
+
+		@include resp-from(md) {
+			font-size: rem(19);
+		}
+
+		.flag {
+			margin-right: 20px;
+		}
+	}
+
+	// .resort-short__title
+	&__title {
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: 1.35;
+		letter-spacing: 0.01em;
+		margin-bottom: 10px;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+			font-weight: 600;
+		}
+	}
+
+	// .resort-short__about
+	&__about {
+		display: none;
+		font-size: rem(18);
+		line-height: 1.4;
+
+		@include resp-from(md) {
+			display: block;
+		}
 	}
 }
 
 .events {
+	--mxh: 350px;
+	max-width: 1059px;
+	display: flex;
+	background: $white;
+	// padding: 25px 20px;
+	flex-direction: column;
+	gap: 20px;
+	margin: 100px calc(var(--grid-padding) * -1) 0;
+
+	@include resp-from(md) {
+		--mxh: 215px;
+		gap: 18px;
+		flex-direction: row;
+		margin: 80px 0 0;
+	}
+
+	@include resp-from(lg) {
+		--mxh: 270px;
+	}
+
 	// .events__left
 	&__left {
+		flex: 1 1 100%;
+
+		@include resp-from(md) {
+			max-width: 450px;
+		}
 	}
 
 	// .events__right
 	&__right {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1 1 100%;
+		gap: 30px;
+		padding: 0 20px 25px 20px;
+
+		@include resp-from(md) {
+			padding: 25px 20px 25px 0;
+			gap: 20px;
+		}
+	}
+
+	// .events__list
+	&__list {
+		color: $black;
+		max-height: var(--mxh);
+	}
+
+	// .events__button
+	&__button {
+	}
+}
+
+.event {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 12px 0;
+	border-bottom: 1px solid $brand-color-primary;
+	// flex-wrap: wrap;
+
+	@include resp-from(lg) {
+		gap: 17px;
+		padding: 17px 0;
+	}
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+
+	// .event__date
+	&__date {
+		flex: 0 0 56px;
+		color: $red;
+		font-weight: 600;
+
+		@include resp-from(lg) {
+			flex: 0 0 65px;
+			font-size: rem(18);
+		}
+
+		@include resp-from(xl) {
+			font-size: rem(23);
+			flex: 0 0 82px;
+		}
+	}
+
+	// .event__flag
+	&__flag {
+	}
+
+	// .event__name
+	&__name {
+		font-weight: 600;
+
+		@include resp-from(lg) {
+			font-size: rem(18);
+		}
+
+		@include resp-from(xl) {
+			font-size: rem(23);
+		}
+
+		a {
+			color: $brand-color-primary;
+			text-decoration-color: transparent;
+
+			@include on-event {
+				color: $red;
+				text-decoration-color: currentColor;
+			}
+		}
 	}
 }
 
@@ -98,6 +337,10 @@
 			object-fit: contain;
 
 			@include resp-from(md) {
+				max-height: 60px;
+			}
+
+			@include resp-from(lg) {
 				max-height: 80px;
 			}
 		}
@@ -106,6 +349,10 @@
 	&.is-active {
 		.js-resort {
 			opacity: 0.5;
+
+			@include on-hover {
+				opacity: 1;
+			}
 
 			&.is-active {
 				opacity: 1;
@@ -121,12 +368,128 @@
 		fill: $blue-dark;
 		transition: all $transition-default;
 
-		@include on-hover {
+		@include on-active {
 			fill: $red;
+		}
+
+		@media (hover: hover) {
+			@include on-hover {
+				fill: $red;
+			}
 		}
 
 		&.is-active {
 			fill: $red;
+		}
+	}
+}
+
+.calendar {
+	width: 100% !important;
+	border-radius: 0;
+	padding: 25px 20px 0;
+
+	@include resp-from(md) {
+		padding: 25px 0 25px 20px;
+	}
+
+	.vanilla-calendar-header {
+		margin-bottom: 16px;
+	}
+
+	.vanilla-calendar-month,
+	.vanilla-calendar-year {
+		text-transform: uppercase;
+		color: $brand-color-primary;
+		font-size: rem(18);
+		font-weight: 500;
+		transition: all $transition-default;
+
+		@include resp-from(md) {
+			font-size: rem(23);
+		}
+
+		@include on-hover {
+			color: $blue-light;
+		}
+	}
+
+	.vanilla-calendar-week__day {
+		text-transform: lowercase;
+		font-size: rem(16);
+		color: $blue;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		&_weekend {
+			color: $red;
+		}
+	}
+
+	.vanilla-calendar-days {
+		gap: 2px;
+	}
+
+	.vanilla-calendar-day__btn {
+		color: #333;
+		height: 30px;
+		font-size: rem(16);
+		border-radius: 0;
+		background-color: #ececec !important;
+
+		@include resp-from(md) {
+			height: 40px;
+			font-size: rem(18);
+		}
+
+		@include resp-from(lg) {
+			height: 50px;
+			font-size: rem(21);
+		}
+	}
+
+	.vanilla-calendar-day__btn_selected,
+	.vanilla-calendar-day__btn_selected:hover {
+		color: $white;
+		background-color: $blue-light !important;
+	}
+
+	.vanilla-calendar-day__btn_today {
+		background-color: $red !important;
+		color: $white !important;
+		font-weight: 400;
+	}
+
+	.vanilla-calendar-day__btn_disabled {
+		color: $gray-light !important;
+	}
+
+	.vanilla-calendar-months,
+	.vanilla-calendar-years {
+		height: 182px;
+
+		@include resp-from(md) {
+			height: 232px;
+		}
+
+		@include resp-from(lg) {
+			height: 282px;
+		}
+	}
+
+	.vanilla-calendar-months__month,
+	.vanilla-calendar-years__year {
+		font-size: rem(16);
+		height: 100%;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		&_selected {
+			background-color: $blue-light !important;
 		}
 	}
 }
