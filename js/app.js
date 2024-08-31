@@ -2,6 +2,7 @@
 /******/ 	"use strict";
 
 ;// CONCATENATED MODULE: ./src/js/modules/functions.js
+//! not used
 /* Проверка поддержки webp браузером */
 function isWebp() {
 	function testWebP(callback) {
@@ -20,6 +21,7 @@ function isWebp() {
 	});
 }
 
+//! not used
 function stickyHeader() {
 	const header = document.querySelector("header");
 
@@ -32,6 +34,22 @@ function stickyHeader() {
 	};
 	window.addEventListener("scroll", handleScroll);
 	handleScroll();
+}
+
+//! not used
+function closeMenuHandler() {
+	const menuToggler = document.getElementById("menu-toggle"),
+		menuWrapper = document.querySelector(".menu-wrapper"),
+		linkClassName = "nav__link";
+	if (!menuToggler || !menuWrapper) return;
+	document.addEventListener("click", (e) => {
+		// console.log(e.target);
+		if (menuToggler.checked) {
+			if (!menuWrapper.contains(e.target) || e.target.classList.contains(linkClassName)) {
+				menuToggler.click();
+			}
+		}
+	});
 }
 
 function isTouchDevice() {
@@ -59,20 +77,20 @@ function isTouchDevice() {
 	);
 }
 
-function closeMenuHandler() {
-	const menuToggler = document.getElementById("menu-toggle"),
-		menuWrapper = document.querySelector(".menu-wrapper"),
-		linkClassName = "nav__link";
-	if (!menuToggler || !menuWrapper) return;
+function noticeHandler() {
+	const isActiveClass = "is-active",
+		triggerClass = "js-notice-fold",
+		noticePreview = document.querySelector(".notice-p"),
+		noticeMain = document.querySelector(".notice-m");
+
 	document.addEventListener("click", (e) => {
-		console.log(e.target);
-		if (menuToggler.checked) {
-			if (!menuWrapper.contains(e.target) || e.target.classList.contains(linkClassName)) {
-				menuToggler.click();
-			}
-		}
+		let trigger = e.target.closest(`.${triggerClass}`);
+		if (!trigger) return;
+		noticePreview.classList.toggle(isActiveClass);
+		noticeMain.classList.toggle(isActiveClass);
 	});
 }
+
 ;// CONCATENATED MODULE: ./node_modules/swiper/shared/ssr-window.esm.mjs
 /**
  * SSR Window 4.0.2
@@ -9917,6 +9935,7 @@ addEventListener("DOMContentLoaded", () => {
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 	isTouchDevice();
+	noticeHandler();
 	swiperResortsHandler();
 	swiperQuotesHandler();
 	swiperPressHandler();
