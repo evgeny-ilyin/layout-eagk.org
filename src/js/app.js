@@ -5,6 +5,7 @@ import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 	fn.isTouchDevice();
+	fn.noticeHandler();
 	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();

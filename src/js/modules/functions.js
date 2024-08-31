@@ -1,3 +1,4 @@
+//! not used
 /* Проверка поддержки webp браузером */
 export function isWebp() {
 	function testWebP(callback) {
@@ -16,6 +17,7 @@ export function isWebp() {
 	});
 }
 
+//! not used
 export function stickyHeader() {
 	const header = document.querySelector("header");
 
@@ -28,6 +30,22 @@ export function stickyHeader() {
 	};
 	window.addEventListener("scroll", handleScroll);
 	handleScroll();
+}
+
+//! not used
+export function closeMenuHandler() {
+	const menuToggler = document.getElementById("menu-toggle"),
+		menuWrapper = document.querySelector(".menu-wrapper"),
+		linkClassName = "nav__link";
+	if (!menuToggler || !menuWrapper) return;
+	document.addEventListener("click", (e) => {
+		// console.log(e.target);
+		if (menuToggler.checked) {
+			if (!menuWrapper.contains(e.target) || e.target.classList.contains(linkClassName)) {
+				menuToggler.click();
+			}
+		}
+	});
 }
 
 export function isTouchDevice() {
@@ -55,17 +73,16 @@ export function isTouchDevice() {
 	);
 }
 
-export function closeMenuHandler() {
-	const menuToggler = document.getElementById("menu-toggle"),
-		menuWrapper = document.querySelector(".menu-wrapper"),
-		linkClassName = "nav__link";
-	if (!menuToggler || !menuWrapper) return;
+export function noticeHandler() {
+	const isActiveClass = "is-active",
+		triggerClass = "js-notice-fold",
+		noticePreview = document.querySelector(".notice-p"),
+		noticeMain = document.querySelector(".notice-m");
+
 	document.addEventListener("click", (e) => {
-		console.log(e.target);
-		if (menuToggler.checked) {
-			if (!menuWrapper.contains(e.target) || e.target.classList.contains(linkClassName)) {
-				menuToggler.click();
-			}
-		}
+		let trigger = e.target.closest(`.${triggerClass}`);
+		if (!trigger) return;
+		noticePreview.classList.toggle(isActiveClass);
+		noticeMain.classList.toggle(isActiveClass);
 	});
 }
