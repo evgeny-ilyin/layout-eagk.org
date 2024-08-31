@@ -204,18 +204,45 @@
  */
 button {
 	&.dropdown {
+		width: 20px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		font-size: 0;
-		padding: 10px;
+		padding: 11px 0;
 		border: 0;
 		background: transparent;
+
+		&_label {
+			flex-direction: column;
+			align-items: flex-end;
+			font-size: rem(14);
+			color: $gray-dark;
+			padding: 0;
+			gap: 12px;
+
+			&::after {
+				color: $brand-color-primary;
+				order: -1;
+				margin-right: 3px;
+			}
+		}
+
+		&.is-opened {
+			--arrow-opened-margin: 0 3px -9px 0;
+
+			&::after {
+				transform: rotate(225deg) scale(-1);
+				margin: var(--arrow-opened-margin, 0);
+			}
+		}
 	}
 }
 
 .dropdown {
+	color: currentColor;
+
 	&::after {
 		content: "";
 		transform: rotate(225deg);

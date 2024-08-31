@@ -117,7 +117,7 @@
 		@include resp-from(md) {
 			width: 170px;
 			left: 0;
-			padding: 14px 33px;
+			padding: 14px 0 14px 41px;
 			transform: none;
 		}
 	}
@@ -129,7 +129,7 @@
 		padding: 0 0 5px !important;
 
 		@include resp-from(md) {
-			padding: 10px 0 10px 33px !important;
+			padding: 10px 0 10px 41px !important;
 		}
 
 		@include on-hover {
