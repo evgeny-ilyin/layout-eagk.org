@@ -198,3 +198,40 @@
 .h-100 {
 	height: 100% !important;
 }
+
+/**
+ * Dropdown arrow
+ */
+.dropdown {
+	@include when-inside(".lang-nav") {
+		--arrow-color: #{$red};
+		--arrow-width: 14px;
+		--arrow-margin: -5px 0 0 7px;
+		--arrow-hover-color: #b7c3ef;
+		--arrow-hover-margin: 7px 0 0 7px;
+	}
+
+	&::after {
+		display: none;
+		content: "";
+		transform: rotate(225deg);
+		transition: all $transition-default;
+		width: var(--arrow-width, 14px);
+		height: var(--arrow-width, 14px);
+		border-top: 2px solid var(--arrow-color, currentColor);
+		border-left: 2px solid var(--arrow-color, currentColor);
+		margin: var(--arrow-margin, 0);
+
+		@include resp-from(md) {
+			display: block;
+		}
+	}
+
+	@include on-hover {
+		&::after {
+			transform: rotate(225deg) scale(-1);
+			border-color: var(--arrow-hover-color, currentColor);
+			margin: var(--arrow-hover-margin, 0);
+		}
+	}
+}

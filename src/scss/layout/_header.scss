@@ -132,29 +132,7 @@
 			padding: 10px 0 10px 33px !important;
 		}
 
-		&::after {
-			display: none;
-			content: "";
-			width: 14px;
-			height: 14px;
-			border-top: 2px solid $red;
-			border-left: 2px solid $red;
-			transform: rotate(225deg);
-			margin: -5px 0 0 7px;
-			transition: all $transition-default;
-
-			@include resp-from(md) {
-				display: block;
-			}
-		}
-
 		@include on-hover {
-			&::after {
-				border-color: #b7c3ef;
-				transform: rotate(225deg) scale(-1);
-				margin-top: 7px;
-			}
-
 			.lang-nav__dropdown {
 				opacity: 1;
 				z-index: 4;
