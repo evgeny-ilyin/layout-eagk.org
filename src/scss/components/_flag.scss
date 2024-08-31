@@ -19,6 +19,17 @@
 		}
 	}
 
+	@include when-inside(".notice") {
+		--width: 40px;
+		--height: 23px;
+		--border-width: 1px;
+
+		@include resp-from(hd) {
+			--width: 67px;
+			--height: 39px;
+		}
+	}
+
 	@include when-inside(".event") {
 		--width: 30px;
 		--height: 17px;

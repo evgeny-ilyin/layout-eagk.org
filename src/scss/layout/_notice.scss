@@ -1,0 +1,296 @@
+.notice {
+	color: $brand-color-primary;
+
+	// .notice__preview
+	&__preview {
+		overflow: hidden;
+		height: 0;
+
+		&.is-active {
+			height: auto;
+			padding: 10px 0;
+
+			@include resp-from(hd) {
+				padding: 20px 0;
+			}
+		}
+	}
+
+	// .notice__main
+	&__main {
+		overflow: hidden;
+		height: 0;
+
+		&.is-active {
+			height: auto;
+			padding: 20px 0;
+
+			@include resp-from(hd) {
+				padding: 20px 0;
+			}
+		}
+	}
+}
+
+.notice-p {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+
+	@include resp-from(sm) {
+		flex-wrap: nowrap;
+		gap: 20px;
+	}
+
+	@include resp-from(hd) {
+		gap: 35px;
+	}
+
+	// .notice-p__date
+	&__date {
+		color: $red;
+		font-size: rem(16);
+		font-weight: 600;
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		@include resp-from(lg) {
+			font-size: rem(22);
+		}
+
+		@include resp-from(hd) {
+			font-size: rem(30);
+		}
+	}
+
+	// .notice-p__name
+	&__name {
+		color: $brand-color-secondary;
+		font-size: rem(16);
+		font-weight: 600;
+		order: 3;
+
+		@include resp-from(sm) {
+			order: 0;
+		}
+
+		@include resp-from(md) {
+			font-size: rem(18);
+		}
+
+		@include resp-from(lg) {
+			font-size: rem(22);
+		}
+
+		@include resp-from(hd) {
+			font-size: rem(30);
+		}
+	}
+
+	// .notice-p__place
+	&__place {
+		font-size: rem(14);
+		line-height: 1.1;
+		font-weight: 600;
+		margin-left: auto;
+
+		@include resp-from(sm) {
+			margin-top: 5px;
+		}
+
+		@include resp-from(md) {
+			font-size: rem(16);
+		}
+
+		@include resp-from(hd) {
+			font-size: rem(18);
+		}
+	}
+
+	// .notice-p__unfold
+	&__unfold {
+		@include resp-to(sm) {
+			margin-left: auto;
+		}
+
+		.dropdown {
+			@include resp-to(sm) {
+				padding-top: 5px;
+				padding-bottom: 5px;
+				margin-top: -10px;
+			}
+		}
+	}
+}
+
+.notice-m {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px 0;
+
+	@include resp-from(xm) {
+		gap: 20px;
+	}
+
+	@include resp-from(lg) {
+		flex-wrap: nowrap;
+	}
+
+	// .notice-m__col-1
+	&__col-1 {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		flex: 0 0 50%;
+		padding-right: 5px;
+
+		@include resp-from(xm) {
+			gap: 10px;
+			flex: 0 0 33%;
+			padding-right: 0;
+		}
+
+		@include resp-from(md) {
+			gap: 17px;
+		}
+
+		@include resp-from(lg) {
+			flex: 0 0 20%;
+		}
+	}
+
+	// .notice-m__place
+	&__place {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-size: rem(16);
+		font-weight: 600;
+		line-height: 1;
+		color: $brand-color-primary;
+
+		@include resp-from(lg) {
+			flex-direction: row;
+			gap: 20px;
+			font-size: rem(18);
+		}
+
+		@include resp-from(hd) {
+			font-size: rem(22);
+		}
+	}
+
+	// .notice-m__date
+	&__date {
+		font-size: rem(20);
+		line-height: 1;
+		font-weight: 600;
+		color: $red;
+
+		@include resp-from(xm) {
+			font-size: rem(24);
+		}
+
+		@include resp-from(md) {
+			font-size: rem(26);
+		}
+
+		@include resp-from(lg) {
+			font-size: rem(30);
+		}
+
+		@include resp-from(hd) {
+			font-size: rem(40);
+		}
+	}
+
+	// .notice-m__col-2
+	&__col-2 {
+		display: flex;
+		flex: 0 0 50%;
+		padding-left: 5px;
+
+		@include resp-from(xm) {
+			flex: 0 0 33%;
+			align-items: center;
+			padding-left: 0;
+		}
+
+		@include resp-from(lg) {
+			flex: 0 0 20%;
+		}
+	}
+
+	// .notice-m__name
+	&__name {
+		img {
+			max-height: 90px;
+
+			@include resp-from(lg) {
+				max-height: 100px;
+			}
+		}
+	}
+
+	// .notice-m__col-3
+	&__col-3 {
+		display: flex;
+		align-items: center;
+
+		@include resp-from(xm) {
+			flex-basis: 100%;
+			order: -1;
+		}
+
+		@include resp-from(lg) {
+			order: 0;
+		}
+	}
+
+	// .notice-m__text
+	&__text {
+		font-size: rem(14);
+		line-height: 1.2;
+		display: -webkit-box;
+		-webkit-line-clamp: 6;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+
+		@include resp-from(md) {
+			font-size: rem(16);
+		}
+
+		@include resp-from(lg) {
+			padding-left: 5%;
+		}
+
+		@include resp-from(xl) {
+			padding-left: 10%;
+		}
+	}
+
+	// .notice-m__col-4
+	&__col-4 {
+		display: flex;
+		flex: 1 1 100%;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		@include resp-from(xm) {
+			flex: 0 0 auto;
+			margin-left: auto;
+			flex-direction: column;
+		}
+	}
+
+	// .notice-m__more
+	&__more {
+	}
+
+	// .notice-m__fold
+	&__fold {
+	}
+}
