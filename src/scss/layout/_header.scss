@@ -4,6 +4,11 @@
 .header {
 	background: $brand-color-primary;
 	color: $white;
+	z-index: 2;
+
+	@include resp-from(md) {
+		z-index: auto;
+	}
 
 	// .header__wrapper
 	&__wrapper {
@@ -11,11 +16,17 @@
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		align-items: center;
-		position: relative;
+		// position: relative;
 		padding: 13px 0 15px;
-		gap: 0 34px;
+		gap: 0 15px;
+		background: $brand-color-primary;
+
+		@include resp-from(sm) {
+			gap: 0 34px;
+		}
 
 		@include resp-from(md) {
+			position: relative;
 			padding: 19px 0 24px;
 			gap: 0 30px;
 		}
@@ -51,13 +62,14 @@
 		display: flex;
 		margin-left: auto;
 		align-items: center;
-		position: relative;
+		// position: relative;
 		order: 2;
 
 		@include resp-from(md) {
 			margin: 0;
 			flex: 1 1 auto;
 			max-width: 415px;
+			position: relative;
 			order: 1;
 		}
 
@@ -101,10 +113,10 @@
 
 	// .lang-nav__dropdown
 	&__dropdown {
-		display: flex;
+		display: none;
 		flex-direction: column;
 		gap: 10px;
-		z-index: -1;
+		z-index: -2;
 		opacity: 0;
 		width: 112px;
 		position: absolute;
@@ -115,6 +127,7 @@
 		transition: all $transition-default;
 
 		@include resp-from(md) {
+			display: flex;
 			width: 170px;
 			left: 0;
 			padding: 14px 0 14px 41px;
@@ -136,6 +149,7 @@
 			.lang-nav__dropdown {
 				opacity: 1;
 				z-index: 4;
+				display: flex;
 			}
 		}
 	}
