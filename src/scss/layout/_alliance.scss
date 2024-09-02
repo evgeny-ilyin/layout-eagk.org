@@ -1,0 +1,74 @@
+.swiper-alliance {
+	--swiper-navigation-color: #{$white};
+	--swiper-navigation-size: 33px;
+	--swiper-pagination-bottom: 10px;
+	--swiper-navigation-sides-offset: 16px;
+	margin: 0 auto;
+	max-width: 1660px;
+
+	@include resp-from(md) {
+		--swiper-navigation-size: 38px;
+		--swiper-pagination-bottom: 40px;
+	}
+
+	@include resp-from(hd) {
+		--swiper-navigation-sides-offset: 70px;
+	}
+
+	.swiper {
+		padding-bottom: 0;
+	}
+
+	.swiper-slide {
+		position: relative;
+
+		img {
+			width: 100%;
+			height: 263px;
+			object-position: center;
+			object-fit: cover;
+
+			@include resp-from(md) {
+				height: 617px;
+			}
+		}
+	}
+
+	// .swiper-alliance__logo
+	&__logo {
+		position: absolute;
+		top: 14px;
+		left: 16px;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		@include resp-from(md) {
+			top: 45px;
+			gap: 40px;
+		}
+
+		svg {
+			&:first-child {
+				width: 28px;
+				height: 40px;
+
+				@include resp-from(md) {
+					width: 43px;
+					height: 61px;
+				}
+			}
+
+			&:last-child {
+				fill: $brand-color-primary;
+				max-width: 180px;
+				max-height: 45px;
+
+				@include resp-from(md) {
+					max-width: 280px;
+					max-height: 70px;
+				}
+			}
+		}
+	}
+}
