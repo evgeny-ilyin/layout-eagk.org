@@ -32,8 +32,14 @@
 
 		@include resp-from(lg) {
 			font-size: rem(24);
-		line-height: 1.4;
+			line-height: 1.4;
+		}
 	}
+
+	// .block-text__body
+	&__body {
+		font-size: rem(18);
+		line-height: 1.4;
 	}
 
 	// .block-text__button
