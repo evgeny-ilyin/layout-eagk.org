@@ -9,6 +9,7 @@ addEventListener("DOMContentLoaded", () => {
 	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
+	sw.swiperAllianceHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();

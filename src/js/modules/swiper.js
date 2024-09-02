@@ -141,3 +141,21 @@ export function swiperQuotesHandler() {
 		},
 	});
 }
+
+// init swiper-alliance Swiper
+export function swiperAllianceHandler() {
+	let swiperAlliance;
+	swiperAlliance = new Swiper(".swiper-alliance .swiper", {
+		modules: [Pagination, Navigation],
+		slidesPerView: 1,
+		spaceBetween: 10,
+		pagination: {
+			el: ".swiper-alliance .swiper-pagination",
+			clickable: true,
+		},
+		navigation: {
+			nextEl: ".swiper-alliance .swiper-button-next",
+			prevEl: ".swiper-alliance .swiper-button-prev",
+		},
+	});
+}
