@@ -1,0 +1,295 @@
+.reference {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 40px 20px;
+
+	// .reference_right
+	&_right {
+		@include resp-from(lg) {
+			padding: 50px 9% 70px 18%;
+		}
+	}
+
+	// .reference_left
+	&_left {
+		@include resp-from(lg) {
+			padding: 50px 16% 70px 5%;
+		}
+		@include resp-from(xl) {
+			padding-right: 18%;
+		}
+	}
+
+	& > div {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// .reference_blue
+	&_blue {
+		color: $white;
+		background: $blue;
+	}
+
+	// .reference_green
+	&_green {
+		color: $white;
+		background: $green;
+	}
+
+	// .reference__head
+	&__head {
+		margin-bottom: 17px;
+
+		@include resp-from(md) {
+			margin-bottom: 35px;
+		}
+	}
+
+	// .reference__body
+	&__body {
+		margin-bottom: 27px;
+		font-size: rem(17);
+		line-height: 1.4;
+		font-weight: 500;
+
+		@include resp-from(md) {
+			margin-bottom: 37px;
+			font-size: rem(20);
+		}
+
+		@include resp-from(xl) {
+			margin-bottom: 47px;
+			font-size: rem(22);
+		}
+	}
+
+	// .reference__button
+	&__button {
+	}
+}
+
+.ref-logo {
+	height: 180px;
+	display: none;
+
+	@include resp-from(lg) {
+		display: flex;
+	}
+}
+
+.swiper-reference {
+	--swiper-theme-color: #{$red};
+	--swiper-pagination-bullet-inactive-color: #{$gray-light};
+	--swiper-pagination-bullet-inactive-opacity: 0.7;
+	--swiper-pagination-bullet-size: 10px;
+	--swiper-pagination-bullet-horizontal-gap: 6px;
+	--swiper-navigation-color: #{$brand-color-primary};
+	--swiper-navigation-size: 37px;
+	position: relative;
+	margin-top: 70px;
+	margin-bottom: 0;
+	padding: 0;
+
+	// .swiper-reference_top
+	&_top {
+		@include resp-from(lg) {
+			margin-bottom: -465px;
+		}
+		@include resp-from(xl) {
+			margin-bottom: -525px;
+		}
+		@include resp-from(hd) {
+			margin-bottom: -555px;
+		}
+
+		.swiper-slide,
+		.swiper-slide-next {
+			transition: height 0.2s ease;
+
+			@include resp-from(lg) {
+				height: 140px;
+			}
+
+			@include resp-from(xl) {
+				height: 165px;
+			}
+
+			@include resp-from(hd) {
+				height: 185px;
+			}
+		}
+
+		.swiper-slide-next {
+			@include resp-from(lg) {
+				width: 30% !important;
+			}
+		}
+
+		.swiper-slide-active {
+			height: 100%;
+
+			@include resp-from(lg) {
+				width: 70% !important;
+			}
+		}
+	}
+
+	// .swiper-reference_bottom
+	&_bottom {
+		@include resp-from(lg) {
+			margin-top: -375px;
+		}
+		@include resp-from(xl) {
+			margin-top: -436px;
+		}
+		@include resp-from(hd) {
+			margin-top: -465px;
+		}
+
+		.swiper-wrapper {
+			@include resp-from(lg) {
+				align-items: flex-end;
+			}
+		}
+
+		.swiper-slide,
+		.swiper-slide-active {
+			transition: height 0.2s ease;
+
+			@include resp-from(lg) {
+				height: 140px;
+			}
+
+			@include resp-from(xl) {
+				height: 165px;
+			}
+
+			@include resp-from(hd) {
+				height: 185px;
+			}
+		}
+
+		.swiper-slide-next {
+			height: 100%;
+
+			@include resp-from(lg) {
+				width: 70% !important;
+
+				& + .swiper-slide {
+					height: 100%;
+				}
+			}
+		}
+
+		.swiper-slide-active {
+			@include resp-from(lg) {
+				width: 30% !important;
+			}
+		}
+	}
+
+	.swiper {
+		padding-bottom: 0;
+		height: 250px;
+
+		@include resp-from(sm) {
+			height: 290px;
+		}
+
+		@include resp-from(xm) {
+			height: 390px;
+		}
+
+		@include resp-from(md) {
+			height: 520px;
+		}
+
+		@include resp-from(lg) {
+			height: 335px;
+		}
+
+		@include resp-from(xl) {
+			height: 420px;
+		}
+
+		@include resp-from(hd) {
+			height: 470px;
+		}
+	}
+
+	.swiper-slide {
+		picture,
+		img {
+			width: auto;
+			margin: 0 auto;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.swiper-pagination-bullet {
+		transition: all 250ms ease-in-out;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+		cursor: pointer;
+
+		@include on-hover {
+			--swiper-pagination-bullet-inactive-opacity: 1;
+		}
+	}
+
+	.swiper-pagination-fraction {
+		color: $black;
+	}
+
+	.swiper-navigation-disabled + .swiper-reference__nav {
+		.swiper-button-prev,
+		.swiper-button-next {
+			display: none !important;
+		}
+	}
+
+	@include resp-to(lg) {
+		--swiper-pagination-bottom: 14px;
+	}
+
+	@include resp-from(lg) {
+		width: calc(100% - 33.33333333%);
+	}
+
+	// .swiper-reference__nav
+	&__nav {
+		@include resp-from(lg) {
+			display: flex;
+			justify-content: flex-end;
+			height: 32px;
+			margin-top: 58px;
+		}
+	}
+
+	// .swiper-reference__wrapper
+	&__wrapper {
+		@include resp-from(lg) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 200px;
+			align-items: center;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			position: static;
+			margin-top: 0;
+		}
+
+		.swiper-pagination {
+			@include resp-from(lg) {
+				z-index: -1;
+			}
+		}
+	}
+}

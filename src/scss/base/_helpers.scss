@@ -139,6 +139,17 @@
 /**
  * Other
  */
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
 .nowrap {
 	white-space: nowrap;
 }
@@ -183,6 +194,10 @@
 	@include resp-from(md) {
 		display: block;
 	}
+}
+
+.pl-0 {
+	padding-left: 0;
 }
 
 /**
