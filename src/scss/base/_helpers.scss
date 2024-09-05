@@ -150,6 +150,12 @@
 	flex-direction: column;
 }
 
+.block-mobile-first {
+	@include resp-to(lg) {
+		order: -1;
+	}
+}
+
 .nowrap {
 	white-space: nowrap;
 }
