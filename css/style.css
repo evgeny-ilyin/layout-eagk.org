@@ -3395,7 +3395,7 @@ svg .js-resort.is-active {
   transition: height .2s ease
 }
 .swiper-reference_top .swiper-slide-active {
-  height: 100%
+  height: 100%!important
 }
 .swiper-reference_bottom .swiper-slide,
 .swiper-reference_bottom .swiper-slide-active {
@@ -3403,7 +3403,7 @@ svg .js-resort.is-active {
   transition: height .2s ease
 }
 .swiper-reference_bottom .swiper-slide-next {
-  height: 100%
+  height: 100%!important
 }
 .swiper-reference .swiper {
   padding-bottom: 0;
