@@ -3,6 +3,10 @@
 	margin-bottom: 0;
 	padding: 40px 20px;
 
+	@include resp-from(lg) {
+		margin-bottom: 50px;
+	}
+
 	// .reference_right
 	&_right {
 		@include resp-from(lg) {
@@ -15,6 +19,7 @@
 		@include resp-from(lg) {
 			padding: 50px 16% 70px 5%;
 		}
+
 		@include resp-from(xl) {
 			padding-right: 18%;
 		}
@@ -71,12 +76,33 @@
 }
 
 .ref-logo {
-	height: 180px;
 	display: none;
 
 	@include resp-from(lg) {
+		height: 180px;
 		display: flex;
 	}
+
+	// .ref-logo_visible
+	&_visible {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 35px;
+
+		@include resp-from(lg) {
+			margin-bottom: 0;
+			justify-content: normal;
+		}
+	}
+
+	// .ref-logo_pl
+	// &_pl {
+	// 	padding-left: 20px;
+
+	// 	@include resp-from(lg) {
+	// 		padding-left: 18%;
+	// 	}
+	// }
 }
 
 .swiper-reference {
@@ -88,9 +114,13 @@
 	--swiper-navigation-color: #{$brand-color-primary};
 	--swiper-navigation-size: 37px;
 	position: relative;
-	margin-top: 70px;
+	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
+
+	@include resp-from(lg) {
+		margin-bottom: 50px;
+	}
 
 	// .swiper-reference_top
 	&_top {
