@@ -9700,6 +9700,66 @@ function swiperQuotesHandler() {
 	});
 }
 
+// init swiper-alliance Swiper
+function swiperAllianceHandler() {
+	let swiperAlliance;
+	swiperAlliance = new Swiper(".swiper-alliance .swiper", {
+		modules: [Pagination, Navigation],
+		slidesPerView: 1,
+		spaceBetween: 10,
+		pagination: {
+			el: ".swiper-alliance .swiper-pagination",
+			clickable: true,
+		},
+		navigation: {
+			nextEl: ".swiper-alliance .swiper-button-next",
+			prevEl: ".swiper-alliance .swiper-button-prev",
+		},
+	});
+}
+
+// init swiper-reference Swiper
+function swiperReferenceHandler() {
+	const swiperReference = document.querySelectorAll(".swiper-reference");
+
+	swiperReference.forEach((el) => {
+		let swiper = el.querySelector(".swiper"),
+			next = el.querySelector(".swiper-button-next"),
+			prev = el.querySelector(".swiper-button-prev"),
+			pagination = el.querySelector(".swiper-pagination");
+
+		new Swiper(swiper, {
+			modules: [Pagination, Navigation],
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			pagination: {
+				el: pagination,
+				type: "bullets",
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1024: {
+					slidesPerView: 2,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+}
+
 ;// CONCATENATED MODULE: ./src/js/modules/dynamicAdapt.js
 /**
  * @typedef {Object} dNode
@@ -9896,35 +9956,38 @@ var __defProp=Object.defineProperty,__getOwnPropSymbols=Object.getOwnPropertySym
 
 
 addEventListener("DOMContentLoaded", () => {
-	const options = {
-		settings: {
-			lang: "ru",
-			visibility: {
-				daysOutside: false,
+	const calendar = document.querySelector(".calendar"),
+		options = {
+			settings: {
+				lang: "ru",
+				visibility: {
+					daysOutside: false,
+				},
+				selection: {
+					day: false,
+				},
 			},
-			selection: {
-				day: false,
+			date: {
+				min: "2024-05-01",
+				max: "2034-04-30",
 			},
-		},
-		date: {
-			min: "2024-05-01",
-			max: "2034-04-30",
-		},
-		actions: {
-			clickMonth(e, self) {
-				// fetch
-				console.log(self.selectedMonth + 1);
+			actions: {
+				clickMonth(e, self) {
+					// fetch
+					// console.log(self.selectedMonth + 1);
+				},
 			},
-		},
-	};
+		};
 
-	window.calendar = new VanillaCalendar(".calendar", options);
-	calendar.init();
+	if (!calendar) return;
+
+	window.cal = new VanillaCalendar(calendar, options);
+	cal.init();
 
 	// при загрузке дергать текущий месяц из базы и обновлять тут
 
-	calendar.selectedDates = ['2024-08-01-2024-08-03', '2024-08-10', '2024-08-12', '2024-08-15', '2024-08-31', '2024-09-27'];
-	calendar.update();
+	cal.selectedDates = ["2024-08-01-2024-08-03", "2024-08-10", "2024-08-12", "2024-08-15", "2024-08-31", "2024-09-27"];
+	cal.update();
 });
 
 ;// CONCATENATED MODULE: ./src/js/app.js
@@ -9939,6 +10002,8 @@ addEventListener("DOMContentLoaded", () => {
 	swiperResortsHandler();
 	swiperQuotesHandler();
 	swiperPressHandler();
+	swiperAllianceHandler();
+	swiperReferenceHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();
