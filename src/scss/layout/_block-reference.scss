@@ -158,7 +158,7 @@
 		}
 
 		.swiper-slide-active {
-			height: 100%;
+			height: 100% !important;
 
 			@include resp-from(lg) {
 				width: 70% !important;
@@ -202,7 +202,7 @@
 		}
 
 		.swiper-slide-next {
-			height: 100%;
+			height: 100% !important;
 
 			@include resp-from(lg) {
 				width: 70% !important;
