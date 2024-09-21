@@ -6,6 +6,8 @@ addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 	fn.isTouchDevice();
 	fn.noticeHandler();
+	fn.clickAndDrag();
+	fn.scrollHorisontallyByWheel();
 	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
