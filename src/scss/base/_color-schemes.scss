@@ -1,3 +1,7 @@
+/**
+ * Backgrounds
+ */
+
 .bg-secondary {
 	background: $brand-color-secondary;
 	color: $white;
@@ -9,6 +13,21 @@
 
 .bg-gray-blue {
 	background: $gray-blue;
+}
+
+.bg-gray-light {
+	background: $gray-light;
+	--bg-full: #{$gray-light};
+}
+
+.bg-full {
+	box-shadow: 0 0 0 100vmax var(--bg-full);
+	clip-path: inset(0 -100vmax);
+}
+
+.bg-full-vertical {
+	box-shadow: 0 0 0 100vmax var(--bg-full);
+	clip-path: inset(-100vmax 0);
 }
 
 /**
