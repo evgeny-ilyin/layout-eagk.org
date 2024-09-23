@@ -127,7 +127,7 @@
 		transition: all $transition-default;
 
 		@include resp-from(md) {
-			display: flex;
+			// display: flex;
 			width: 170px;
 			left: 0;
 			padding: 14px 0 14px 41px;
