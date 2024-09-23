@@ -62,6 +62,18 @@
 		}
 	}
 
+	@include when-inside(".news-card") {
+
+		&_kz {
+			--bg-size: 230%;
+			--pos: 54% 45%;
+		}
+
+		&_uz {
+			--pos: -1px center;
+		}
+	}
+
 	&::before {
 		content: "";
 		display: block;
@@ -91,6 +103,8 @@
 	&_kz {
 		&::before {
 			background-image: $svg-flag-kz;
+			background-size: var(--bg-size, cover);
+			background-position: var(--pos, center);
 		}
 	}
 	// .flag_az
@@ -104,6 +118,7 @@
 		&::before {
 			background-image: $svg-flag-uz;
 			border: var(--border-width, 0) solid $gray-light;
+			background-position: var(--pos, center);
 		}
 	}
 	// .flag_eagk
