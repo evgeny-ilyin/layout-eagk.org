@@ -91,6 +91,73 @@ function noticeHandler() {
 	});
 }
 
+function clickAndDrag() {
+	document.addEventListener("mousedown", (e) => {
+		const scroll_speed = 1.5,
+			draggableClass = "js-draggable",
+			draggingClass = "js-dragging", // flag for other functions
+			el = e.target.closest(`.${draggableClass}`);
+
+		if (!el) return;
+
+		let isDown = false,
+			startX,
+			scrollLeft;
+
+		e.preventDefault();
+
+		isDown = true;
+		startX = e.pageX - el.offsetLeft;
+		scrollLeft = el.scrollLeft;
+
+		// prevent default child behavior
+		document.addEventListener("click", function (e) {
+			if (el.contains(e.target)) {
+				if (el.classList.contains(draggingClass)) {
+					// оставляем возможность клика ссылок
+					e.preventDefault();
+				}
+			}
+		});
+
+		el.addEventListener("mouseleave", () => {
+			isDown = false;
+		});
+
+		el.addEventListener("mouseup", () => {
+			isDown = false;
+
+			// remove the dragging class after a short delay to prevent other click events
+			setTimeout(() => {
+				el.classList.remove(draggingClass);
+			}, 250);
+		});
+
+		el.addEventListener("mousemove", (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - el.offsetLeft,
+				walk = (x - startX) * scroll_speed; // scroll fast
+			el.scrollLeft = scrollLeft - walk;
+
+			if (scrollLeft !== el.scrollLeft) {
+				el.classList.add(draggingClass);
+			}
+		});
+	});
+}
+
+function scrollHorisontallyByWheel() {
+	const elements = document.querySelectorAll(".js-scroll-x");
+	elements.forEach((el) => {
+		el.addEventListener("wheel", (event) => {
+			event.preventDefault();
+			el.scrollBy({
+				left: event.deltaY < 0 ? -200 : 200,
+			});
+		});
+	});
+}
 ;// CONCATENATED MODULE: ./node_modules/swiper/shared/ssr-window.esm.mjs
 /**
  * SSR Window 4.0.2
@@ -9760,6 +9827,59 @@ function swiperReferenceHandler() {
 	});
 }
 
+// init swiper-main Swiper
+function swiperMainHandler() {
+	const swiperMain = document.querySelectorAll(".swiper-main");
+
+	swiperMain.forEach((el) => {
+		let swiper = el.querySelector(".swiper"),
+			next = el.querySelector(".swiper-button-next"),
+			prev = el.querySelector(".swiper-button-prev"),
+			pagination = el.querySelector(".swiper-pagination");
+
+		new Swiper(swiper, {
+			modules: [Pagination, Navigation],
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			pagination: {
+				el: pagination,
+				type: "bullets",
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1024: {
+					slidesPerView: 2,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+				1280: {
+					slidesPerView: 3,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+}
+
 ;// CONCATENATED MODULE: ./src/js/modules/dynamicAdapt.js
 /**
  * @typedef {Object} dNode
@@ -9990,6 +10110,48 @@ addEventListener("DOMContentLoaded", () => {
 	cal.update();
 });
 
+;// CONCATENATED MODULE: ./src/js/modules/yandex-map.js
+if (!window.mapInit) {
+	window.mapInit = () => {
+		const mapContainer = document.querySelector(".map-resort");
+		if (!mapContainer) return;
+
+		let pointerIcon = data.pointerIcon,
+			zoomDefault = 10,
+			options = { suppressMapOpenBlock: true, minZoom: 5, maxZoom: 16 };
+
+		const map = new ymaps.Map(
+			mapContainer,
+			{
+				center: [0, 0],
+				zoom: zoomDefault,
+				controls: ["zoomControl", "fullscreenControl", "typeSelector"],
+			},
+			options
+		);
+
+		let objectManager = new ymaps.ObjectManager({});
+
+		objectManager.objects.options.set({
+			preset: "islands#blueDotIconWithCaption",
+			// iconLayout: "default#image",
+			// iconImageHref: pointerIcon,
+			// iconImageSize: [45, 45],
+			// balloonMaxWidth: 254,
+		});
+
+		objectManager.add(data);
+
+		map.geoObjects.add(objectManager);
+		// zoomMargin нужен, если точки при getBounds оказались слишком близко к краю прямоугольника
+		map.setBounds(objectManager.getBounds(), { checkZoomRange: true, zoomMargin: 10 }).then(function () {
+			if (map.getZoom() > zoomDefault) map.setZoom(zoomDefault);
+		});
+	};
+}
+
+ymaps.ready(mapInit);
+
 ;// CONCATENATED MODULE: ./src/js/app.js
 
 
@@ -9999,16 +10161,20 @@ addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 	isTouchDevice();
 	noticeHandler();
+	clickAndDrag();
+	scrollHorisontallyByWheel();
 	swiperResortsHandler();
 	swiperQuotesHandler();
 	swiperPressHandler();
 	swiperAllianceHandler();
 	swiperReferenceHandler();
+	swiperMainHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();
 	// fn.closeMenuHandler();
 });
+
 
 
 // import "./modules/cookies.js";
