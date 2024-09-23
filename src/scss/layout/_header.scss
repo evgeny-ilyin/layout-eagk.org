@@ -7,7 +7,7 @@
 	z-index: 2;
 
 	@include resp-from(md) {
-		z-index: auto;
+		z-index: 1;
 	}
 
 	// .header__wrapper

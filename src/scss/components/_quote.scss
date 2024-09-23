@@ -132,3 +132,28 @@
 		}
 	}
 }
+
+.news-quote {
+	position: relative;
+	max-width: 525px;
+	color: $blue;
+	font-size: rem(18);
+	line-height: 1.5;
+	padding-left: 42px;
+	margin: 35px 0 50px;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 30px;
+		height: 25px;
+		background: $svg-quote center / contain no-repeat;
+	}
+
+	b,
+	strong {
+		display: block;
+	}
+}

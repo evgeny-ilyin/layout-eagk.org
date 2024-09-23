@@ -65,8 +65,8 @@
 	&::before {
 		content: "";
 		display: block;
-		width: var(--width);
-		height: var(--height);
+		width: var(--width, 40px);
+		height: var(--height, 23px);
 		flex: 0 0 auto;
 		border-radius: var(--border-radius, 0);
 		background-repeat: no-repeat;

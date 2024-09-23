@@ -4,6 +4,7 @@
 .footer {
 	background: $brand-color-primary;
 	color: $white;
+	z-index: 1;
 
 	a {
 		@include on-hover {
