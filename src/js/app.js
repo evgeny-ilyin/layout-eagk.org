@@ -13,6 +13,7 @@ addEventListener("DOMContentLoaded", () => {
 	sw.swiperPressHandler();
 	sw.swiperAllianceHandler();
 	sw.swiperReferenceHandler();
+	sw.swiperMainHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();
@@ -20,5 +21,6 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 import "./modules/calendar.js";
+import "./modules/yandex-map.js";
 // import "./modules/cookies.js";
 // import "./modules/fancyapps.js";

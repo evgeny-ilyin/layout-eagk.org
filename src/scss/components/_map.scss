@@ -1,0 +1,9 @@
+.map-resort {
+	height: 500px;
+	filter: grayscale(1);
+	transition: all $transition-default;
+
+	@include on-hover {
+		filter: grayscale(0);
+	}
+}
