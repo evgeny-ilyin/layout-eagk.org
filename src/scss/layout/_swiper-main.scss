@@ -1,0 +1,177 @@
+.swiper-main {
+	--swiper-theme-color: #{$red};
+	--swiper-pagination-bullet-inactive-color: #{$gray-light};
+	--swiper-pagination-bullet-inactive-opacity: 0.7;
+	--swiper-pagination-bullet-size: 10px;
+	--swiper-pagination-bullet-horizontal-gap: 6px;
+	--swiper-navigation-color: #{$brand-color-primary};
+	--swiper-navigation-size: 37px;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+
+	@include resp-from(lg) {
+		margin-bottom: 50px;
+	}
+
+	.swiper-slide,
+	.swiper-slide-active {
+		transition: height 0.2s ease;
+
+		@include resp-from(lg) {
+			height: 140px;
+		}
+
+		@include resp-from(xl) {
+			height: 165px;
+		}
+
+		@include resp-from(hd) {
+			height: 185px;
+		}
+	}
+
+	.swiper-slide-next {
+		height: 100% !important;
+
+		@include resp-from(lg) {
+			width: 450px !important;
+
+			picture,
+			img {
+				width: 100% !important;
+			}
+
+			& + .swiper-slide {
+				// height: 100%;
+
+				picture,
+				img {
+					margin-left: 0 !important;
+				}
+			}
+		}
+
+		@include resp-from(xl) {
+			width: 650px !important;
+		}
+	}
+
+	.swiper-slide-active {
+		@include resp-from(lg) {
+			width: 33.33333333% !important;
+
+			picture,
+			img {
+				margin-right: 0 !important;
+			}
+		}
+	}
+
+	.swiper {
+		padding-bottom: 0;
+		height: 250px;
+
+		@include resp-from(sm) {
+			height: 290px;
+		}
+
+		@include resp-from(xm) {
+			height: 390px;
+		}
+
+		@include resp-from(md) {
+			height: 520px;
+		}
+
+		@include resp-from(lg) {
+			position: relative;
+			height: 335px;
+		}
+
+		@include resp-from(xl) {
+			height: 420px;
+		}
+
+		@include resp-from(hd) {
+			height: 470px;
+		}
+	}
+
+	.swiper-slide {
+		picture,
+		img {
+			width: auto;
+			margin: 0 auto;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.swiper-pagination-bullet {
+		transition: all 250ms ease-in-out;
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+		cursor: pointer;
+
+		@include on-hover {
+			--swiper-pagination-bullet-inactive-opacity: 1;
+		}
+	}
+
+	.swiper-pagination-fraction {
+		color: $black;
+	}
+
+	.swiper-navigation-disabled + .swiper-main__nav {
+		.swiper-button-prev,
+		.swiper-button-next {
+			display: none !important;
+		}
+	}
+
+	@include resp-to(lg) {
+		--swiper-pagination-bottom: 14px;
+	}
+
+	@include resp-from(lg) {
+		// width: calc(100% - 33.33333333%);
+	}
+
+	// .swiper-main__nav
+	&__nav {
+		@include resp-from(lg) {
+			position: absolute;
+			top: 250px;
+			left: 31%;
+			display: flex;
+			justify-content: flex-end;
+			height: 32px;
+		}
+	}
+
+	// .swiper-main__wrapper
+	&__wrapper {
+		@include resp-from(lg) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 200px;
+			align-items: center;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			position: static;
+			margin-top: 0;
+		}
+
+		.swiper-pagination {
+			@include resp-from(lg) {
+				z-index: -1;
+			}
+		}
+	}
+}

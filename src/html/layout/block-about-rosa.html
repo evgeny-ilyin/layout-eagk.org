@@ -1,0 +1,66 @@
+<div class="content">
+	<div class="about-resort">
+		<div class="about-resort__geo">
+			<div class="flag flag_ru"></div>Россия, Сочи
+		</div>
+		<div class="about-resort__text">Член Евразийского Альянса горных курортов с июня 2023 г.</div>
+	</div>
+</div>
+
+<div class="wide-image bg-gray-blue-light">
+	<img src="@img/dev/about/wide-rosa.jpg" width="" height="" alt="" loading="lazy">
+</div>
+
+<div class="content">
+	<div class="block-text row">
+		<div class="col-md-4 h1"><b>Лучший горнолыжный курорт России</b> по версии world ski awards</div>
+		<div class="col-md-8 col-lg-6">
+			<div class="block-text__head text-blue">
+				В 2014 году курорт «Роза Хутор» стал одним из ключевых объектов XXII зимних Олимпийских игр и местом проведения соревнований по горнолыжному спорту, сноуборду и фристайлу. Впервые за историю Олимпийских игр все соревнования по указанным выше дисциплинам прошли на одном объекте.
+			</div>
+		</div>
+	</div>
+</div>
+
+@@include('block-swiper-about.html', {})
+
+<div class="content">
+	<div class="block-text row">
+		<div class="col-md-4 order-last order-md-first">
+			<div class="block-text__info">
+				<svg>
+					<use xlink:href="#logo-rosa"></use>
+				</svg>
+				<div class="block-text__address">354 392 Краснодарский край, г. Сочи, Адлерский район, с. Эсто-садок, ул. Олимпийская, д. 35</div>
+				<div class="block-text__contacts">
+					<a href="tel:+78005000555">8 800 5000 555</a><br>
+					<a href="mailto:order@rosakhutor.com">order@rosakhutor.com</a><br>
+					<a href="https://rosakhutor.com" target="_blank" rel="nofollow">rosakhutor.com</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 col-lg-6">
+			<div class="block-text__body">
+				Наша общая цель — повысить качество и конкурентоспособность, вывести культуру туризма на новый уровень. Вступление в наш союз нового участника, лучшего горного курорта Азербайджана — «Шахдаг», станет ярким дополнением межгосударственного туристического маршрута, разрабатываемого Альянсом.
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="map-resort"></div>
+
+<!-- Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах. -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=533e69f3-bb89-4016-839c-6158fa6e1e52"></script>
+<script>
+	let data = {
+		// "pointerIcon": "img/icon-map-pointer.svg",
+		"type": "FeatureCollection",
+		"features": [
+			{
+				"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [43.670708, 40.287873] }, "properties": {
+					"balloonContent": "", "iconCaption": "Роза Хутор"
+				}
+			}
+		]
+	};
+</script>

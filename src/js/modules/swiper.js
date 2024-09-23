@@ -201,3 +201,56 @@ export function swiperReferenceHandler() {
 		});
 	});
 }
+
+// init swiper-main Swiper
+export function swiperMainHandler() {
+	const swiperMain = document.querySelectorAll(".swiper-main");
+
+	swiperMain.forEach((el) => {
+		let swiper = el.querySelector(".swiper"),
+			next = el.querySelector(".swiper-button-next"),
+			prev = el.querySelector(".swiper-button-prev"),
+			pagination = el.querySelector(".swiper-pagination");
+
+		new Swiper(swiper, {
+			modules: [Pagination, Navigation],
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			pagination: {
+				el: pagination,
+				type: "bullets",
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1024: {
+					slidesPerView: 2,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+				1280: {
+					slidesPerView: 3,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+}

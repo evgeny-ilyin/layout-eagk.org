@@ -327,9 +327,25 @@
 
 		a {
 			display: flex;
+			align-items: center;
 			width: 100%;
+
+			// &[data-map="amirsoy"] {
+			// 	svg {
+			// 		width: 61px;
+
+			// 		@include resp-from(md) {
+			// 			width: 73px;
+			// 		}
+
+			// 		@include resp-from(lg) {
+			// 			width: 97px;
+			// 		}
+			// 	}
+			// }
 		}
 
+		svg,
 		img {
 			width: 100%;
 			height: auto;
@@ -343,6 +359,10 @@
 			@include resp-from(lg) {
 				max-height: 80px;
 			}
+		}
+
+		svg {
+			fill: currentColor;
 		}
 	}
 

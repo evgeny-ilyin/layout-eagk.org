@@ -1,0 +1,18 @@
+@@include('html/components/head.html', {
+"title": "Евразийский альянс горных курортов",
+"description": "Первый международный фестиваль горных курортов Евразии проводится на курорте «Роза Хутор». В рамках фестиваля организованы спуски команд-участниц разных стран, насыщенная деловая программа, мероприятия корпоративного университета ЕАГК и вечер национальных кухонь."
+})
+<body>
+	@@include('html/layout/header.html', {})
+
+	<main class="container">
+		@@include('html/layout/block-inner-swiper-resorts.html', {})
+		@@include('html/layout/block-about-rosa.html', {})
+	</main>
+
+	@@include('html/layout/footer.html', {})
+
+	@@include('html/components/svg-sprite.html', {})
+	@@include('html/components/scripts.html', {})
+</body>
+</html>
