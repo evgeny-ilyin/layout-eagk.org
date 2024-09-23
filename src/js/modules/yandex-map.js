@@ -1,6 +1,7 @@
+const mapContainer = document.querySelector(".map-resort");
+
 if (!window.mapInit) {
 	window.mapInit = () => {
-		const mapContainer = document.querySelector(".map-resort");
 		if (!mapContainer) return;
 
 		let pointerIcon = data.pointerIcon,
@@ -37,4 +38,6 @@ if (!window.mapInit) {
 	};
 }
 
-ymaps.ready(mapInit);
+if(mapContainer) {
+	ymaps.ready(mapInit);
+}
