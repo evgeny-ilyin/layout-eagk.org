@@ -15,6 +15,9 @@
 	margin-right: auto; /* 2 */
 	padding: 0; /* 3 */
 	flex: 1;
+
+	display: flex;
+	flex-direction: column;
 }
 
 /**
@@ -28,6 +31,7 @@
 	padding-left: var(--grid-padding);
 	padding-right: var(--grid-padding);
 	position: relative;
+	width: 100%;
 
 	@include resp-from(xl) {
 		--grid-padding: #{$max-padding};
