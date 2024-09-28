@@ -8,6 +8,8 @@ addEventListener("DOMContentLoaded", () => {
 	fn.noticeHandler();
 	fn.clickAndDrag();
 	fn.scrollHorisontallyByWheel();
+	fn.loadmore();
+
 	sw.swiperResortsHandler();
 	sw.swiperQuotesHandler();
 	sw.swiperPressHandler();
