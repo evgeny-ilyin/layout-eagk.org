@@ -134,6 +134,14 @@
 			background-position: var(--pos, center);
 		}
 	}
+	// .flag_sk
+	&_sk {
+		&::before {
+			background-image: $svg-flag-sk;
+			border: var(--border-width, 0) solid $gray-light;
+			background-position: var(--pos, center);
+		}
+	}
 	// .flag_eagk
 	&_eagk {
 		&::before {
