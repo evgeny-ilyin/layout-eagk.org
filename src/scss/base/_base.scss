@@ -5,6 +5,12 @@
 /**
  * Set up a decent box model on the root element
  */
+
+* {
+	// Disable double-tap "zoom" option in browser on touch devices
+	touch-action: manipulation;
+}
+
 html {
 	cursor: default;
 	box-sizing: border-box;
