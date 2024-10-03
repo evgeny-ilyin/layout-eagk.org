@@ -33,6 +33,7 @@ export const html = () => {
 				)
 			)
 
+			// Оборачивает img в picture и добавляет source webp
 			.pipe(webpHtmlNosvg())
 			// .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
 
