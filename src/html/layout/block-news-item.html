@@ -6,6 +6,9 @@
 			</div>
 			<h1 class="news-item__header">Lorem ipsum dolor sit amet.</h1>
 			<div class="news-item__subheader">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur voluptates fugiat est quisquam eligendi, praesentium at, illum quas earum eos magnam molestiae rem iusto ab similique, ad ipsa voluptatum nisi sequi non recusandae alias. Omnis est, repudiandae ullam voluptatem sunt voluptate explicabo temporibus ad? Mollitia porro dolores animi aliquam quo?</div>
+
+			@@include('block-swiper-news.html', {})
+
 			<div class="news-item__body">
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A cum voluptatem quos officiis? Dolor, sed delectus facere voluptatum explicabo expedita architecto cum molestiae, aperiam ipsam laudantium labore minus quo atque!</p>
 				<h3>Подзаголовок h3</h3>
@@ -34,35 +37,36 @@
 			<div class="news-item__other-header">Другие публикации</div>
 			<div class="news-item__other-list">
 				<div class="news-card">
-					<div class="news-card__img">
-						<picture>
-							<source srcset="img/dev/press-img-1.webp" type="image/webp"><img src="img/dev/press-img-1.jpg" width="341" height="232" alt="FOOD STREET WEEKEND" loading="lazy">
-						</picture>
-					</div>
-					<div class="news-card__body">
-						<div class="news-card__date">5—11 Апреля</div>
-						<div class="news-card__header">FOOD STREET WEEKEND</div>
-						<div class="news-card__bottom">
-							<a href="/" class="news-card__link">ЕАГК</a>
-							<div class="news-card__flag flag flag_eagk"></div>
+					<a href="/" class="news-card__link">
+						<div class="news-card__img">
+							<div class="news-card__note">Открыть новость</div>
+							<img src="@img/dev/press-img-1.jpg" width="340" height="232" alt="FOOD STREET WEEKEND" loading="lazy">
 						</div>
-					</div>
+						<div class="news-card__body">
+							<div class="news-card__date">5—11 Апреля</div>
+							<div class="news-card__header">FOOD STREET WEEKEND</div>
+							<div class="news-card__bottom">
+								<div class="news-card__location">ЕАГК</div>
+								<div class="news-card__flag flag flag_eagk"></div>
+							</div>
+						</div>
+					</a>
 				</div>
-
 				<div class="news-card">
-					<div class="news-card__img">
-						<picture>
-							<source srcset="img/dev/press-img-1.webp" type="image/webp"><img src="img/dev/press-img-1.jpg" width="341" height="232" alt="FOOD STREET WEEKEND" loading="lazy">
-						</picture>
-					</div>
-					<div class="news-card__body">
-						<div class="news-card__date">5—11 Апреля</div>
-						<div class="news-card__header">FOOD STREET WEEKEND</div>
-						<div class="news-card__bottom">
-							<a href="/" class="news-card__link">Россия, Роза Хутор</a>
-							<div class="news-card__flag flag flag_ru"></div>
+					<a href="/" class="news-card__link">
+						<div class="news-card__img">
+							<div class="news-card__note">Открыть в источнике</div>
+							<img src="@img/dev/press-img-1.jpg" width="340" height="232" alt="FOOD STREET WEEKEND" loading="lazy">
 						</div>
-					</div>
+						<div class="news-card__body">
+							<div class="news-card__date">5—11 Апреля</div>
+							<div class="news-card__header">FOOD STREET WEEKEND</div>
+							<div class="news-card__bottom">
+								<div class="news-card__location">Россия, Роза Хутор</div>
+								<div class="news-card__flag flag flag_ru"></div>
+							</div>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
