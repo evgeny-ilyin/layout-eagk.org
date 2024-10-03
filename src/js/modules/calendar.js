@@ -7,6 +7,7 @@ addEventListener("DOMContentLoaded", () => {
 				lang: "ru",
 				visibility: {
 					daysOutside: false,
+					theme: 'light',
 				},
 				selection: {
 					day: false,
