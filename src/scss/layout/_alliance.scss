@@ -60,13 +60,74 @@
 			}
 
 			&:last-child {
-				fill: $brand-color-primary;
-				max-width: 180px;
+				// fill: $brand-color-primary;
+				// max-width: 180px;
 				max-height: 45px;
 
 				@include resp-from(md) {
-					max-width: 280px;
+					// max-width: 290px;
 					max-height: 70px;
+				}
+			}
+		}
+
+		&._logo-rosa {
+			svg:last-child {
+				width: 180px;
+
+				@include resp-from(md) {
+					width: 281px;
+				}
+
+			}
+		}
+
+		&._logo-amirsoy {
+			svg:last-child {
+				width: 55px;
+
+				@include resp-from(md) {
+					width: 85px;
+				}
+			}
+		}
+
+		&._logo-shymbulak {
+			svg:last-child {
+				width: 114px;
+
+				@include resp-from(md) {
+					width: 177px;
+				}
+			}
+		}
+
+		&._logo-shahdag {
+			svg:last-child {
+				width: 130px;
+
+				@include resp-from(md) {
+				width: 200px;
+				}
+			}
+		}
+
+		&._logo-oi-qaragai {
+			svg:last-child {
+				width: 160px;
+
+				@include resp-from(md) {
+					width: 250px;
+				}
+			}
+		}
+
+		&._logo-yongpyong {
+			svg:last-child {
+				width: 121px;
+
+				@include resp-from(md) {
+					width: 188px;
 				}
 			}
 		}
