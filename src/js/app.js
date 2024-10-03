@@ -16,6 +16,7 @@ addEventListener("DOMContentLoaded", () => {
 	sw.swiperAllianceHandler();
 	sw.swiperReferenceHandler();
 	sw.swiperMainHandler();
+	sw.swiperNewsHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();

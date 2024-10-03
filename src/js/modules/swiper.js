@@ -9,7 +9,7 @@ export function swiperResortsHandler() {
 		slidesPerView: 2.5,
 		slidesPerGroup: 1,
 		spaceBetween: 20,
-		slideToClickedSlide: true,
+		slideToClickedSlide: false,
 		breakpoints: {
 			577: {
 				slidesPerView: 3.5,
@@ -36,7 +36,11 @@ export function swiperResortsHandler() {
 
 	const resortLinks = document.querySelectorAll(".js-resort"),
 		resortsSwiper = document.querySelector(".swiper-resorts"),
+		commonDesc = document.querySelector(`[data-resort="common"]`),
 		isActiveClass = "is-active";
+
+	// set active common description on page load
+	if(commonDesc) commonDesc.classList.add(isActiveClass);
 
 	resortLinks.forEach((link) => {
 		link.addEventListener("click", (e) => {
@@ -56,22 +60,25 @@ export function swiperResortsHandler() {
 	};
 
 	let deactivateAll = () => {
-		const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}`);
+		const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}, .description .${isActiveClass}`);
+
 		if (isActive.length > 0) {
 			isActive.forEach((e) => {
 				e.classList.remove(isActiveClass);
-				// console.log(e.dataset.map);
+				// console.log(e.dataset.resort);
 			});
+			commonDesc.classList.add(isActiveClass);
 		}
 	};
 
 	let setActive = (id) => {
-		const target = id.dataset.map;
+		const target = id.dataset.resort;
 		if (!target) return;
 
+		commonDesc.classList.remove(isActiveClass);
 		resortsSwiper.classList.add(isActiveClass);
 
-		const element = document.querySelectorAll(`[data-map="${target}"]`);
+		const element = document.querySelectorAll(`[data-resort="${target}"]`);
 		element.forEach((el) => {
 			el.classList.add(isActiveClass);
 
@@ -204,7 +211,7 @@ export function swiperReferenceHandler() {
 
 // init swiper-main Swiper
 export function swiperMainHandler() {
-	const swiperMain = document.querySelectorAll(".swiper-main");
+	const swiperMain = document.querySelectorAll(".swiper-about");
 
 	swiperMain.forEach((el) => {
 		let swiper = el.querySelector(".swiper"),
@@ -241,6 +248,47 @@ export function swiperMainHandler() {
 				},
 				1280: {
 					slidesPerView: 3,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+}
+
+export function swiperNewsHandler() {
+	const swiperNews = document.querySelectorAll(".swiper-news");
+
+	swiperNews.forEach((el) => {
+		let swiper = el.querySelector(".swiper"),
+			next = el.querySelector(".swiper-button-next"),
+			prev = el.querySelector(".swiper-button-prev"),
+			pagination = el.querySelector(".swiper-pagination");
+
+		new Swiper(swiper, {
+			modules: [Pagination, Navigation],
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			pagination: {
+				el: pagination,
+				type: "bullets",
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1280: {
+					slidesPerView: 2,
 					allowTouchMove: false,
 					pagination: {
 						el: pagination,
