@@ -76,14 +76,17 @@
 		img,
 		picture {
 			width: 71px;
+			height: 71px;
 			border-radius: 50%;
 
 			@include resp-from(lg) {
 				width: 100px;
+				height: 100px;
 			}
 
 			@include resp-from(xl) {
 				width: 150px;
+				height: 150px;
 			}
 		}
 	}
@@ -129,6 +132,12 @@
 			display: block;
 			width: 100%;
 			max-height: 90px;
+		}
+
+		&._logo-amirsoy {
+			svg {
+				width: 109px;
+			}
 		}
 	}
 }

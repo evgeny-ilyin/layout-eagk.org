@@ -7,10 +7,14 @@
 		padding-right: var(--n-pad-r, 0);
 
 		@include resp-from(lg) {
-			--n-pad-r: 100px;
+			--n-pad-r: var(--grid-padding);
 		}
 
 		@include resp-from(xl) {
+			--n-pad-r: 50px;
+		}
+
+		@include resp-from(hd) {
 			--n-pad-r: 140px;
 		}
 	}
@@ -19,6 +23,7 @@
 	&__parent {
 		color: $brand-color-primary;
 		font-weight: 500;
+		margin-bottom: 35px;
 
 		@include resp-from(lg) {
 			font-size: rem(18);
@@ -70,6 +75,7 @@
 		h6,
 		.h6 {
 			color: $brand-color-primary;
+			margin-block-start: 20px;
 		}
 	}
 

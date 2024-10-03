@@ -1,6 +1,6 @@
 .btn {
 	cursor: pointer;
-	padding: 7px 15px 5px;
+	padding: 8px 15px 5px;
 	min-height: 36px;
 	display: inline-flex;
 	align-items: center;
@@ -15,6 +15,7 @@
 	background: $white;
 	border: 1px solid $brand-color-primary;
 	user-select: none;
+	transition: all $transition-default;
 
 	@include resp-from(lg) {
 		font-size: rem(19);
