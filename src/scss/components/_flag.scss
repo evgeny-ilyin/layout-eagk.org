@@ -30,12 +30,6 @@
 		}
 
 		&.flag_eagk {
-			// background: $blue;
-			// flex-shrink: 0;
-			// justify-content: center;
-			// width: var(--width);
-			// height: var(--height);
-
 			&::before {
 				width: var(--height);
 				height: var(--height);
@@ -52,6 +46,17 @@
 		@include resp-from(lg) {
 			--width: 40px;
 			--height: 23px;
+		}
+
+		&.flag_eagk {
+			width: var(--width);
+			justify-content: center;
+
+			&::before {
+				width: var(--height);
+				height: var(--height);
+				background-image: $svg-flag-eagk-blue;
+			}
 		}
 	}
 
@@ -138,6 +143,14 @@
 	&_sk {
 		&::before {
 			background-image: $svg-flag-sk;
+			border: var(--border-width, 0) solid $gray-light;
+			background-position: var(--pos, center);
+		}
+	}
+	// .flag_tj
+	&_tj {
+		&::before {
+			background-image: $svg-flag-tj;
 			border: var(--border-width, 0) solid $gray-light;
 			background-position: var(--pos, center);
 		}

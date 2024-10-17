@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 // init swiper-resorts Swiper
 export function swiperResortsHandler() {
@@ -40,7 +40,7 @@ export function swiperResortsHandler() {
 		isActiveClass = "is-active";
 
 	// set active common description on page load
-	if(commonDesc) commonDesc.classList.add(isActiveClass);
+	if (commonDesc) commonDesc.classList.add(isActiveClass);
 
 	resortLinks.forEach((link) => {
 		link.addEventListener("click", (e) => {
@@ -139,12 +139,16 @@ export function swiperPressHandler() {
 export function swiperQuotesHandler() {
 	let swiperQuotes;
 	swiperQuotes = new Swiper(".swiper-quotes", {
-		modules: [Pagination],
+		modules: [Pagination, Autoplay],
 		slidesPerView: 1,
 		spaceBetween: 60,
 		pagination: {
 			el: ".swiper-quotes .swiper-pagination",
 			clickable: true,
+		},
+		autoplay: {
+			delay: 5000,
+			pauseOnMouseEnter: true,
 		},
 	});
 }
@@ -153,7 +157,7 @@ export function swiperQuotesHandler() {
 export function swiperAllianceHandler() {
 	let swiperAlliance;
 	swiperAlliance = new Swiper(".swiper-alliance .swiper", {
-		modules: [Pagination, Navigation],
+		modules: [Pagination, Navigation, Autoplay],
 		slidesPerView: 1,
 		spaceBetween: 10,
 		pagination: {
@@ -163,6 +167,10 @@ export function swiperAllianceHandler() {
 		navigation: {
 			nextEl: ".swiper-alliance .swiper-button-next",
 			prevEl: ".swiper-alliance .swiper-button-prev",
+		},
+		autoplay: {
+			delay: 3000,
+			pauseOnMouseEnter: true,
 		},
 	});
 }

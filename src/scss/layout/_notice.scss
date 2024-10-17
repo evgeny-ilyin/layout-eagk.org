@@ -227,7 +227,10 @@
 
 	// .notice-m__name
 	&__name {
+		width: 100%;
 		img {
+			width: auto;
+			margin: 0 auto;
 			max-height: 90px;
 
 			@include resp-from(lg) {

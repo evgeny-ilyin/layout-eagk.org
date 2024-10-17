@@ -249,12 +249,16 @@
 }
 
 .event {
-	display: flex;
+	display: none;
 	align-items: center;
 	gap: 15px;
 	padding: 12px 0;
 	border-bottom: 1px solid $brand-color-primary;
 	// flex-wrap: wrap;
+
+	&.is-active {
+		display: flex;
+	}
 
 	@include resp-from(lg) {
 		gap: 17px;
