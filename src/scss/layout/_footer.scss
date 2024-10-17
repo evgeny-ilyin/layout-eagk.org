@@ -75,6 +75,10 @@
 		@include on-hover {
 			color: $red;
 		}
+
+		&.is-active {
+			color: $red;
+		}
 	}
 
 	// .footer__links

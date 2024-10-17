@@ -3,7 +3,9 @@
 "description": "Первый международный фестиваль горных курортов Евразии проводится на курорте «Роза Хутор». В рамках фестиваля организованы спуски команд-участниц разных стран, насыщенная деловая программа, мероприятия корпоративного университета ЕАГК и вечер национальных кухонь."
 })
 <body>
-	@@include('html/layout/header.html', {})
+	@@include('html/layout/header.html', {
+		"alliance": "is-active"
+	})
 
 	<main class="container">
 		@@include('html/layout/block-swiper-alliance.html', {})
@@ -17,7 +19,9 @@
 		@@include('html/layout/block-education-alliance.html', {})
 	</main>
 
-	@@include('html/layout/footer.html', {})
+	@@include('html/layout/footer.html', {
+		"alliance": "is-active"
+	})
 
 	@@include('html/components/svg-sprite.html', {})
 	@@include('html/components/scripts.html', {})

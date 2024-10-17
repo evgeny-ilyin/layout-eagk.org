@@ -11,7 +11,11 @@
 			</div>
 
 			<div class="header__nav">
-				@@include('nav.html', {})
+				@@include('nav.html', {
+					"alliance": "@@alliance",
+					"resorts": "@@resorts",
+					"press": "@@press",
+				})
 			</div>
 
 			<div class="header__lang">

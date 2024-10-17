@@ -77,6 +77,10 @@
 			font-size: clamp(rem(15), 1.9vw, rem(21));
 			font-size: clamp(rem(15), 1.9dvw, rem(21));
 		}
+
+		&.is-active {
+			color: $red;
+		}
 	}
 }
 

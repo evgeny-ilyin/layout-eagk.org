@@ -3,14 +3,18 @@
 "description": ""
 })
 <body>
-	@@include('html/layout/header.html', {})
+	@@include('html/layout/header.html', {
+		"resorts": "is-active"
+	})
 
 	<main class="container">
 		@@include('html/layout/block-inner-swiper-resorts.html', {})
 		@@include('html/layout/block-about-rosa.html', {})
 	</main>
 
-	@@include('html/layout/footer.html', {})
+	@@include('html/layout/footer.html', {
+		"resorts": "is-active"
+	})
 
 	@@include('html/components/svg-sprite.html', {})
 	@@include('html/components/scripts.html', {})

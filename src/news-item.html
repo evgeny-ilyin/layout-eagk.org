@@ -3,13 +3,17 @@
 "description": ""
 })
 <body>
-	@@include('html/layout/header.html', {})
+	@@include('html/layout/header.html', {
+		"press": "is-active"
+	})
 
 	<main class="container">
 		@@include('html/layout/block-news-item.html', {})
 	</main>
 
-	@@include('html/layout/footer.html', {})
+	@@include('html/layout/footer.html', {
+		"press": "is-active"
+	})
 
 	@@include('html/components/svg-sprite.html', {})
 	@@include('html/components/scripts.html', {})
