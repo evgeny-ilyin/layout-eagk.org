@@ -37,7 +37,7 @@
 	// .timeline__wrapper
 	&__wrapper {
 		--grid-padding: #{$min-padding};
-			grid-column: full;
+		grid-column: content; // с full слева больше отступ
 		display: grid;
 		grid-template-columns: inherit;
 		padding-left: var(--grid-padding);
@@ -52,21 +52,20 @@
 			--grid-padding: #{$max-padding};
 		}
 
-
 		&::-webkit-scrollbar {
 			inline-size: 0 !important;
 			display: none;
 		}
 
-		&::after {
-			content: "";
-			width: 100%;
-			height: 4px;
-			background: $brand-color-primary;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-		}
+		// &::after {
+		// 	content: "";
+		// 	width: 100%;
+		// 	height: 4px;
+		// 	background: $brand-color-primary;
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	transform: translateY(-50%);
+		// }
 	}
 
 	// .timeline__list
