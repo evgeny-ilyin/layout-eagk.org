@@ -1,10 +1,13 @@
 import VanillaCalendar from "vanilla-calendar-pro";
 
 addEventListener("DOMContentLoaded", () => {
+	let locale = document.documentElement.lang;
+	if (!locale) locale = "ru";
+
 	const calendar = document.querySelector(".calendar"),
 		options = {
 			settings: {
-				lang: "ru",
+				lang: locale,
 				visibility: {
 					daysOutside: false,
 					theme: "light",
