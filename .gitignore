@@ -7,5 +7,4 @@ gulp/version.json
 package-lock.json
 *.zip
 bitrix
-design
 readme.txt
