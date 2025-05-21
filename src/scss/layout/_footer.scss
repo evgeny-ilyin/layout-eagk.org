@@ -18,7 +18,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		gap: 60px 20px;
-		padding: 50px 0 43px;
+		padding: 50px 0 23px;
 		margin: 0 calc(var(--grid-padding) * -1);
 
 		@include resp-from(lg) {
@@ -131,6 +131,24 @@
 				svg {
 					fill: $red;
 				}
+			}
+		}
+	}
+
+	// .footer__copyright
+	&__copyright {
+		font-size: rem(14);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 10px;
+		padding-bottom: 20px;
+
+		a {
+			color: $red;
+
+			@include on-hover {
+				text-decoration-color: rgba($color: #ed4023, $alpha: 0.7);
 			}
 		}
 	}
