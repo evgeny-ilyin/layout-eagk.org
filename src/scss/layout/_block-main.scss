@@ -203,14 +203,16 @@
 	margin: 100px calc(var(--grid-padding) * -1) 0;
 
 	@include resp-from(md) {
-		--mxh: 215px;
+		// --mxh: 215px;
+		--mxh: 260px;
 		gap: 18px;
 		flex-direction: row;
 		margin: 80px 0 0;
 	}
 
 	@include resp-from(lg) {
-		--mxh: 270px;
+		// --mxh: 270px;
+		--mxh: 320px;
 	}
 
 	// .events__left
