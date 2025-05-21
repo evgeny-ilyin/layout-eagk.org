@@ -158,6 +158,67 @@ function scrollHorisontallyByWheel() {
 		});
 	});
 }
+
+function loadmore() {
+	let fetchByUrl = async (trigger) => {
+		let target = trigger.dataset.target,
+			url = trigger.dataset.url,
+			isActiveClass = "is-active";
+
+		if (!url || !target) return;
+
+		const targetNode = document.querySelector(`.${target}`);
+
+		let activeNewsSection = document.querySelector(`.news-list .${isActiveClass}`).dataset.section;
+		if (activeNewsSection) {
+			url += `&code=${activeNewsSection}`;
+		}
+
+		// trigger.innerHTML = "";
+		btnLoader(trigger, "start");
+
+		try {
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+			let result = await response.text(),
+				div = document.createElement("div");
+			div.innerHTML = result;
+
+			let newPager = div.querySelector(".load-more-wrap"),
+				oldPager = document.querySelector(".load-more-wrap");
+
+			oldPager.innerHTML = newPager.innerHTML;
+			newPager.remove();
+
+			targetNode.insertAdjacentHTML("beforeend", div.innerHTML);
+		} catch (e) {
+			console.log(e);
+			return;
+		}
+	};
+
+	document.addEventListener("click", (e) => {
+		const el = e.target.closest(".js-load-more");
+		if (el) {
+			fetchByUrl(el);
+		}
+	});
+}
+
+function btnLoader(where, action = false) {
+	if (!where) return;
+	const loadingClass = "is-loading";
+
+	if (action == "stop") {
+		where.classList.remove(loadingClass);
+		return;
+	}
+
+	where.classList.add(loadingClass);
+}
+
 ;// CONCATENATED MODULE: ./node_modules/swiper/shared/ssr-window.esm.mjs
 /**
  * SSR Window 4.0.2
@@ -8227,7 +8288,7 @@ function Autoplay(_ref) {
   };
   const onVisibilityChange = () => {
     if (swiper.destroyed || !swiper.autoplay.running) return;
-    const document = getDocument();
+    const document = ssr_window_esm_getDocument();
     if (document.visibilityState === 'hidden') {
       pausedByInteraction = true;
       pause(true);
@@ -8263,11 +8324,11 @@ function Autoplay(_ref) {
     }
   };
   const attachDocumentEvents = () => {
-    const document = getDocument();
+    const document = ssr_window_esm_getDocument();
     document.addEventListener('visibilitychange', onVisibilityChange);
   };
   const detachDocumentEvents = () => {
-    const document = getDocument();
+    const document = ssr_window_esm_getDocument();
     document.removeEventListener('visibilitychange', onVisibilityChange);
   };
   on('init', () => {
@@ -9634,7 +9695,7 @@ function swiperResortsHandler() {
 		slidesPerView: 2.5,
 		slidesPerGroup: 1,
 		spaceBetween: 20,
-		slideToClickedSlide: true,
+		slideToClickedSlide: false,
 		breakpoints: {
 			577: {
 				slidesPerView: 3.5,
@@ -9661,7 +9722,11 @@ function swiperResortsHandler() {
 
 	const resortLinks = document.querySelectorAll(".js-resort"),
 		resortsSwiper = document.querySelector(".swiper-resorts"),
+		commonDesc = document.querySelector(`[data-resort="common"]`),
 		isActiveClass = "is-active";
+
+	// set active common description on page load
+	if (commonDesc) commonDesc.classList.add(isActiveClass);
 
 	resortLinks.forEach((link) => {
 		link.addEventListener("click", (e) => {
@@ -9681,22 +9746,25 @@ function swiperResortsHandler() {
 	};
 
 	let deactivateAll = () => {
-		const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}`);
+		const isActive = document.querySelectorAll(`.js-resort.${isActiveClass}, .description .${isActiveClass}`);
+
 		if (isActive.length > 0) {
 			isActive.forEach((e) => {
 				e.classList.remove(isActiveClass);
-				// console.log(e.dataset.map);
+				// console.log(e.dataset.resort);
 			});
+			commonDesc.classList.add(isActiveClass);
 		}
 	};
 
 	let setActive = (id) => {
-		const target = id.dataset.map;
+		const target = id.dataset.resort;
 		if (!target) return;
 
+		commonDesc.classList.remove(isActiveClass);
 		resortsSwiper.classList.add(isActiveClass);
 
-		const element = document.querySelectorAll(`[data-map="${target}"]`);
+		const element = document.querySelectorAll(`[data-resort="${target}"]`);
 		element.forEach((el) => {
 			el.classList.add(isActiveClass);
 
@@ -9757,12 +9825,16 @@ function swiperPressHandler() {
 function swiperQuotesHandler() {
 	let swiperQuotes;
 	swiperQuotes = new Swiper(".swiper-quotes", {
-		modules: [Pagination],
+		modules: [Pagination, Autoplay],
 		slidesPerView: 1,
 		spaceBetween: 60,
 		pagination: {
 			el: ".swiper-quotes .swiper-pagination",
 			clickable: true,
+		},
+		autoplay: {
+			delay: 5000,
+			pauseOnMouseEnter: true,
 		},
 	});
 }
@@ -9771,7 +9843,7 @@ function swiperQuotesHandler() {
 function swiperAllianceHandler() {
 	let swiperAlliance;
 	swiperAlliance = new Swiper(".swiper-alliance .swiper", {
-		modules: [Pagination, Navigation],
+		modules: [Pagination, Navigation, Autoplay],
 		slidesPerView: 1,
 		spaceBetween: 10,
 		pagination: {
@@ -9781,6 +9853,10 @@ function swiperAllianceHandler() {
 		navigation: {
 			nextEl: ".swiper-alliance .swiper-button-next",
 			prevEl: ".swiper-alliance .swiper-button-prev",
+		},
+		autoplay: {
+			delay: 3000,
+			pauseOnMouseEnter: true,
 		},
 	});
 }
@@ -9829,7 +9905,7 @@ function swiperReferenceHandler() {
 
 // init swiper-main Swiper
 function swiperMainHandler() {
-	const swiperMain = document.querySelectorAll(".swiper-main");
+	const swiperMain = document.querySelectorAll(".swiper-about");
 
 	swiperMain.forEach((el) => {
 		let swiper = el.querySelector(".swiper"),
@@ -9866,6 +9942,47 @@ function swiperMainHandler() {
 				},
 				1280: {
 					slidesPerView: 3,
+					allowTouchMove: false,
+					pagination: {
+						el: pagination,
+						type: "fraction",
+					},
+					navigation: {
+						enabled: true,
+					},
+				},
+			},
+		});
+	});
+}
+
+function swiperNewsHandler() {
+	const swiperNews = document.querySelectorAll(".swiper-news");
+
+	swiperNews.forEach((el) => {
+		let swiper = el.querySelector(".swiper"),
+			next = el.querySelector(".swiper-button-next"),
+			prev = el.querySelector(".swiper-button-prev"),
+			pagination = el.querySelector(".swiper-pagination");
+
+		new Swiper(swiper, {
+			modules: [Pagination, Navigation],
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			pagination: {
+				el: pagination,
+				type: "bullets",
+				clickable: true,
+			},
+			navigation: {
+				enabled: false,
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1280: {
+					slidesPerView: 2,
 					allowTouchMove: false,
 					pagination: {
 						el: pagination,
@@ -10076,25 +10193,34 @@ var __defProp=Object.defineProperty,__getOwnPropSymbols=Object.getOwnPropertySym
 
 
 addEventListener("DOMContentLoaded", () => {
+	let locale = document.documentElement.lang;
+	if (!locale) locale = "ru";
+
 	const calendar = document.querySelector(".calendar"),
 		options = {
 			settings: {
-				lang: "ru",
+				lang: locale,
 				visibility: {
 					daysOutside: false,
+					theme: "light",
 				},
 				selection: {
 					day: false,
 				},
 			},
 			date: {
-				min: "2024-05-01",
+				min: "2023-06-01",
 				max: "2034-04-30",
 			},
 			actions: {
 				clickMonth(e, self) {
-					// fetch
-					// console.log(self.selectedMonth + 1);
+					toggleMonth(`${self.selectedYear}-${self.selectedMonth + 1}`);
+				},
+				clickYear(e, self) {
+					toggleMonth(`${self.selectedYear}-${self.selectedMonth + 1}`);
+				},
+				clickArrow(e, self) {
+					toggleMonth(`${self.selectedYear}-${self.selectedMonth + 1}`);
 				},
 			},
 		};
@@ -10104,53 +10230,69 @@ addEventListener("DOMContentLoaded", () => {
 	window.cal = new VanillaCalendar(calendar, options);
 	cal.init();
 
-	// при загрузке дергать текущий месяц из базы и обновлять тут
+	// даты для подсветки выставляются в шаблоне
+	// cal.selectedDates = ["2024-10-19-2024-10-20", "2025-03-01", "2025-07-01", "2025-09-01"];
+	// cal.update();
 
-	cal.selectedDates = ["2024-08-01-2024-08-03", "2024-08-10", "2024-08-12", "2024-08-15", "2024-08-31", "2024-09-27"];
-	cal.update();
+	let toggleMonth = (d) => {
+		// console.log(d);
+		const events = document.querySelectorAll("[data-month]"),
+			activeClass = "is-active";
+		events.forEach((event) => {
+			event.classList.remove(activeClass);
+			if (event.dataset.month === d) {
+				event.classList.add(activeClass);
+			}
+		});
+	};
 });
 
 ;// CONCATENATED MODULE: ./src/js/modules/yandex-map.js
-if (!window.mapInit) {
-	window.mapInit = () => {
-		const mapContainer = document.querySelector(".map-resort");
-		if (!mapContainer) return;
+addEventListener("DOMContentLoaded", () => {
+	const mapContainer = document.querySelector(".map-resort");
 
-		let pointerIcon = data.pointerIcon,
-			zoomDefault = 10,
-			options = { suppressMapOpenBlock: true, minZoom: 5, maxZoom: 16 };
+	if (!window.mapInit) {
+		window.mapInit = () => {
+			if (!mapContainer) return;
 
-		const map = new ymaps.Map(
-			mapContainer,
-			{
-				center: [0, 0],
-				zoom: zoomDefault,
-				controls: ["zoomControl", "fullscreenControl", "typeSelector"],
-			},
-			options
-		);
+			let pointerIcon = data.pointerIcon,
+				zoomDefault = 10,
+				options = { suppressMapOpenBlock: true, minZoom: 5, maxZoom: 16 };
 
-		let objectManager = new ymaps.ObjectManager({});
+			const map = new ymaps.Map(
+				mapContainer,
+				{
+					center: [0, 0],
+					zoom: zoomDefault,
+					controls: ["zoomControl", "fullscreenControl", "typeSelector"],
+				},
+				options
+			);
 
-		objectManager.objects.options.set({
-			preset: "islands#blueDotIconWithCaption",
-			// iconLayout: "default#image",
-			// iconImageHref: pointerIcon,
-			// iconImageSize: [45, 45],
-			// balloonMaxWidth: 254,
-		});
+			let objectManager = new ymaps.ObjectManager({});
 
-		objectManager.add(data);
+			objectManager.objects.options.set({
+				preset: "islands#blueDotIconWithCaption",
+				// iconLayout: "default#image",
+				// iconImageHref: pointerIcon,
+				// iconImageSize: [45, 45],
+				// balloonMaxWidth: 254,
+			});
 
-		map.geoObjects.add(objectManager);
-		// zoomMargin нужен, если точки при getBounds оказались слишком близко к краю прямоугольника
-		map.setBounds(objectManager.getBounds(), { checkZoomRange: true, zoomMargin: 10 }).then(function () {
-			if (map.getZoom() > zoomDefault) map.setZoom(zoomDefault);
-		});
-	};
-}
+			objectManager.add(data);
 
-ymaps.ready(mapInit);
+			map.geoObjects.add(objectManager);
+			// zoomMargin нужен, если точки при getBounds оказались слишком близко к краю прямоугольника
+			map.setBounds(objectManager.getBounds(), { checkZoomRange: true, zoomMargin: 10 }).then(function () {
+				if (map.getZoom() > zoomDefault) map.setZoom(zoomDefault);
+			});
+		};
+	}
+
+	if (mapContainer) {
+		ymaps.ready(mapInit);
+	}
+});
 
 ;// CONCATENATED MODULE: ./src/js/app.js
 
@@ -10163,12 +10305,15 @@ addEventListener("DOMContentLoaded", () => {
 	noticeHandler();
 	clickAndDrag();
 	scrollHorisontallyByWheel();
+	loadmore();
+
 	swiperResortsHandler();
 	swiperQuotesHandler();
 	swiperPressHandler();
 	swiperAllianceHandler();
 	swiperReferenceHandler();
 	swiperMainHandler();
+	swiperNewsHandler();
 	
 	// fn.isWebp();
 	// fn.stickyHeader();
